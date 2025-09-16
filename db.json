@@ -4,16 +4,281 @@
       "id": 7453,
       "type": "host-to-guest",
       "status": "published",
-      "rating": null,
-      "publicReview": "Shane and family are wonderful! Would definitely host again :)",
+      "rating": 10,
+      "publicReview": "Shane and his family were wonderful guests! They followed all house rules and left the place in great condition. Would definitely host again. :)",
       "reviewCategory": [
         { "category": "cleanliness", "rating": 10 },
-        { "category": "communication", "rating": 10 },
-        { "category": "respect_house_rules", "rating": 10 }
+        { "category": "communication", "rating": 10 }
       ],
-      "submittedAt": "2020-08-21 22:45:14",
+      "submittedAt": "2024-08-21T22:45:14Z",
       "guestName": "Shane Finkelstein",
       "listingName": "2B N1 A - 29 Shoreditch Heights"
+    },
+    {
+      "id": 7454,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": 8,
+      "publicReview": "Great location and stylish apartment. The check-in process was a bit confusing, but the host was very responsive and helped us figure it out quickly.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 9 },
+        { "category": "communication", "rating": 10 }
+      ],
+      "submittedAt": "2024-08-19T14:12:00Z",
+      "guestName": "Maria Rodriguez",
+      "listingName": "Modern Downtown Loft"
+    },
+    {
+      "id": 7455,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": null,
+      "publicReview": "The property was exactly as described. Very clean and well-maintained. We had a fantastic stay and would recommend it to anyone.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 10 },
+        { "category": "communication", "rating": 9 }
+      ],
+      "submittedAt": "2024-08-18T11:30:55Z",
+      "guestName": "David Chen",
+      "listingName": "Cozy Beachfront Cottage"
+    },
+    {
+      "id": 7456,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": 6,
+      "publicReview": "The view from the balcony was amazing! However, the WiFi was very slow and unreliable, which was an issue for us as we needed to work remotely.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 8 },
+        { "category": "communication", "rating": 7 }
+      ],
+      "submittedAt": "2024-08-15T09:05:10Z",
+      "guestName": "Emily White",
+      "listingName": "Penthouse with Ocean View"
+    },
+    {
+      "id": 7457,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": 9,
+      "publicReview": "A perfect little getaway spot. The host provided excellent local recommendations for restaurants and activities. The place was spotless.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 10 },
+        { "category": "communication", "rating": 10 }
+      ],
+      "submittedAt": "2024-08-12T18:00:00Z",
+      "guestName": "James Brown",
+      "listingName": "The Hideaway - Studio Apartment"
+    },
+    {
+      "id": 7458,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": 7,
+      "publicReview": "Good value for the price. The apartment is in a central location, making it easy to get around. Some of the furniture was a bit dated, but overall a positive experience.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 7 },
+        { "category": "communication", "rating": 9 }
+      ],
+      "submittedAt": "2024-08-10T16:45:23Z",
+      "guestName": "Jessica Miller",
+      "listingName": "City Center Hub"
+    },
+    {
+      "id": 7459,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": 10,
+      "publicReview": "Absolutely flawless. The apartment was stunning, the amenities were top-notch, and the host went above and beyond to make our stay special.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 10 },
+        { "category": "communication", "rating": 10 }
+      ],
+      "submittedAt": "2024-08-09T20:15:00Z",
+      "guestName": "Michael Clark",
+      "listingName": "Luxury Skyscraper Condo"
+    },
+    {
+      "id": 7460,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": 5,
+      "publicReview": "The location was convenient, but the apartment had a strong smell of cleaning products that was overwhelming. The noise from the street was also quite loud at night.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 6 },
+        { "category": "communication", "rating": 8 }
+      ],
+      "submittedAt": "2024-08-05T12:00:30Z",
+      "guestName": "Sarah Johnson",
+      "listingName": "2B N1 A - 29 Shoreditch Heights"
+    },
+    {
+      "id": 7461,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": 9,
+      "publicReview": "We loved our stay! The kitchen was fully equipped, and the bed was incredibly comfortable. A short walk to the beach. Highly recommended.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 9 },
+        { "category": "communication", "rating": 9 }
+      ],
+      "submittedAt": "2024-08-02T15:22:45Z",
+      "guestName": "Chris Lee",
+      "listingName": "Cozy Beachfront Cottage"
+    },
+    {
+      "id": 7462,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": 8,
+      "publicReview": "Very nice and clean place. The host was friendly and provided clear instructions. The only downside was the lack of parking.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 10 },
+        { "category": "communication", "rating": 9 }
+      ],
+      "submittedAt": "2024-07-30T10:10:10Z",
+      "guestName": "Patricia King",
+      "listingName": "Modern Downtown Loft"
+    },
+    {
+      "id": 7463,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": 7,
+      "publicReview": "The apartment was spacious and had a nice layout. However, we found some dishes in the cupboard that weren't properly cleaned.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 5 },
+        { "category": "communication", "rating": 9 }
+      ],
+      "submittedAt": "2024-07-28T19:50:00Z",
+      "guestName": "Daniel Wright",
+      "listingName": "Penthouse with Ocean View"
+    },
+    {
+      "id": 7464,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": 10,
+      "publicReview": "An amazing experience from start to finish. The host was incredibly welcoming and attentive. The apartment itself was beautiful and in a perfect location.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 10 },
+        { "category": "communication", "rating": 10 }
+      ],
+      "submittedAt": "2024-07-25T13:00:00Z",
+      "guestName": "Laura Hill",
+      "listingName": "Luxury Skyscraper Condo"
+    },
+    {
+      "id": 7465,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": 8,
+      "publicReview": "Solid choice for a weekend trip. The place was clean and had everything we needed. No complaints.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 9 },
+        { "category": "communication", "rating": 8 }
+      ],
+      "submittedAt": "2024-07-22T09:18:33Z",
+      "guestName": "Kevin Scott",
+      "listingName": "City Center Hub"
+    },
+    {
+      "id": 7466,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": 9,
+      "publicReview": "The host was very accommodating and let us check in early. The apartment was clean, comfortable, and had a great view.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 9 },
+        { "category": "communication", "rating": 10 }
+      ],
+      "submittedAt": "2024-07-20T17:35:00Z",
+      "guestName": "Amanda Green",
+      "listingName": "Penthouse with Ocean View"
+    },
+    {
+      "id": 7467,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": 6,
+      "publicReview": "The location is fantastic, right in the heart of the city. The apartment itself could use a deep clean and some minor repairs.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 4 },
+        { "category": "communication", "rating": 8 }
+      ],
+      "submittedAt": "2024-07-19T11:40:19Z",
+      "guestName": "Brian Adams",
+      "listingName": "2B N1 A - 29 Shoreditch Heights"
+    },
+    {
+      "id": 7468,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": 9,
+      "publicReview": "Peaceful and relaxing. The cottage was the perfect escape from the city. We enjoyed the fireplace and the quiet surroundings.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 10 },
+        { "category": "communication", "rating": 9 }
+      ],
+      "submittedAt": "2024-07-15T14:55:00Z",
+      "guestName": "Nancy Baker",
+      "listingName": "The Hideaway - Studio Apartment"
+    },
+    {
+      "id": 7469,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": 8,
+      "publicReview": "A great base for exploring the city. The apartment was clean and modern. The host was helpful and easy to communicate with.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 9 },
+        { "category": "communication", "rating": 9 }
+      ],
+      "submittedAt": "2024-07-14T16:20:51Z",
+      "guestName": "Paul Nelson",
+      "listingName": "Modern Downtown Loft"
+    },
+    {
+      "id": 7470,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": 10,
+      "publicReview": "Everything was perfect. The apartment was immaculate and beautifully decorated. We will definitely be back!",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 10 },
+        { "category": "communication", "rating": 10 }
+      ],
+      "submittedAt": "2024-07-11T12:00:00Z",
+      "guestName": "Sandra Carter",
+      "listingName": "Luxury Skyscraper Condo"
+    },
+    {
+      "id": 7471,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": 7,
+      "publicReview": "The check-in was easy and the location is good. The apartment felt a bit smaller than it looked in the photos, but it was fine for a short stay.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 8 },
+        { "category": "communication", "rating": 9 }
+      ],
+      "submittedAt": "2024-07-10T10:30:00Z",
+      "guestName": "Mark Roberts",
+      "listingName": "City Center Hub"
+    },
+    {
+      "id": 7472,
+      "type": "guest-to-host",
+      "status": "published",
+      "rating": 9,
+      "publicReview": "A wonderful stay at the cottage. It was clean, cozy, and had everything we needed for a relaxing weekend. The host was very thoughtful.",
+      "reviewCategory": [
+        { "category": "cleanliness", "rating": 9 },
+        { "category": "communication", "rating": 10 }
+      ],
+      "submittedAt": "2024-07-08T18:45:00Z",
+      "guestName": "Donna Evans",
+      "listingName": "Cozy Beachfront Cottage"
     }
   ]
 }
