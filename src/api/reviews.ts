@@ -25,7 +25,7 @@ const getReviews = async (): Promise<Review[]> => {
         requestHeaders.set('Authorization', `Bearer ${API_KEY}`);
     }
 
-    const response = await fetch(`${API_BASE_URL}/reviews`, {
+    const response = await fetch(`${API_BASE_URL}/api/reviews/hostaway`, {
         headers: requestHeaders,
     });
     if (!response.ok) {
