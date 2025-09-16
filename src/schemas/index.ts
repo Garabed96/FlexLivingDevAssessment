@@ -13,7 +13,7 @@ const reviewCategorySchema = z.object({
  * This will be used to parse and validate data fetched from the API.
  */
 export const reviewSchema = z.object({
-    id: z.number(),
+    id: z.coerce.number(),
     type: z.string(),
     status: z.string(),
     publicReview: z.string(),
