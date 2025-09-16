@@ -1,5 +1,7 @@
 import React from "react";
 import { useGetReviews } from '../api/reviews';
+import { columns } from '@/components/reviews-table/columns'; // Import the columns
+import { DataTable } from '@/components/reviews-table/data-table.tsx'; // Import the DataTable
 
 function DashboardPage() {
     const { data: reviews, isLoading, isError, error } = useGetReviews();
@@ -13,16 +15,14 @@ function DashboardPage() {
     }
 
     return (
-        <div className="p-4">
+        <div className="container mx-auto py-10">
             <h1 className="text-2xl font-bold mb-4">Reviews Dashboard</h1>
-            <p>
-                Successfully fetched {reviews?.length || 0} reviews. We can now build
-                the data table here.
-            </p>
-            {/* We can temporarily display the raw data to confirm it works */}
-            <pre className="mt-4 bg-gray-100 p-2 rounded">
-        {JSON.stringify(reviews, null, 2)}
-      </pre>
+            {/* If there are reviews, render the DataTable. Otherwise show a message. */}
+            {reviews ? (
+                <DataTable columns={columns} data={reviews} />
+            ) : (
+                <p>No reviews found.</p>
+            )}
         </div>
     );
 }
