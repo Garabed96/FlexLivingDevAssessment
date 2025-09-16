@@ -4,9 +4,11 @@ import * as React from 'react';
 import {
     ColumnDef,
     ColumnFiltersState, // New import for managing filter state
+    SortingState,
     flexRender,
     getCoreRowModel,
     getFilteredRowModel, // New import for filtering logic
+    getSortedRowModel,
     useReactTable,
 } from '@tanstack/react-table';
 
@@ -30,6 +32,7 @@ export function DataTable<TData, TValue>({
              data,
          }: DataTableProps<TData, TValue>) {
     // New state to manage the column filters
+    const [sorting, setSorting] = React.useState<SortingState>([]);
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
         []
     );
@@ -38,10 +41,13 @@ export function DataTable<TData, TValue>({
         data,
         columns,
         getCoreRowModel: getCoreRowModel(),
-        // Add the filter-related properties to the table instance
         onColumnFiltersChange: setColumnFilters,
         getFilteredRowModel: getFilteredRowModel(),
+        // Add the sort-related properties to the table instance
+        onSortingChange: setSorting,
+        getSortedRowModel: getSortedRowModel(),
         state: {
+            sorting,
             columnFilters,
         },
     });

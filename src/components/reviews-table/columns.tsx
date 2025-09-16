@@ -1,6 +1,8 @@
 'use client';
 
 import { type ColumnDef } from '@tanstack/react-table';
+import { ChevronsUpDown } from 'lucide-react'; // New icon import
+import { Button } from '@/components/ui/button'; // New button import
 import { type Review } from '@/schemas'; // Using the '@' alias we set up
 import React from "react";
 
@@ -30,11 +32,31 @@ export const columns: ColumnDef<Review>[] = [
     },
     {
         accessorKey: 'rating',
-        header: 'Overall Rating',
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+                >
+                    Overall Rating
+                    <ChevronsUpDown className="ml-2 h-4 w-4" />
+                </Button>
+            );
+        },
     },
     {
         accessorKey: 'submittedAt',
-        header: 'Date',
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+                >
+                    Date
+                    <ChevronsUpDown className="ml-2 h-4 w-4" />
+                </Button>
+            );
+        },
         // Format the date for better readability
         cell: ({ row }) => {
             const date: Date = row.getValue('submittedAt');
