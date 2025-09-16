@@ -1,6 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import { reviewsSchema, type Review } from '../schemas';
+
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const ACCOUNT_ID = import.meta.env.VITE_HOSTAWAY_ACCOUNT_ID;
+const API_KEY = import.meta.env.VITE_HOSTAWAY_API_KEY;
 
 if (!API_BASE_URL) {
     throw new Error('VITE_API_BASE_URL is not defined. Please check your .env file.');
@@ -11,7 +14,20 @@ if (!API_BASE_URL) {
  * against our Zod schema to ensure it's type-safe.
  */
 const getReviews = async (): Promise<Review[]> => {
-    const response = await fetch(`${API_BASE_URL}/reviews`); // Use the environment variable
+    // TODO: Important: You must implement the API route that fetches and normalizes
+    //  reviews (e.g. GET /api/reviews/hostaway). This route will be tested and
+    //  should return structured, usable data for the frontend.
+    // Although our mock API doesn't need these, this is how you would
+    // structure the call for a real-world, authenticated API.
+    const requestHeaders = new Headers();
+    if (ACCOUNT_ID && API_KEY) {
+        requestHeaders.set('X-Account-ID', ACCOUNT_ID);
+        requestHeaders.set('Authorization', `Bearer ${API_KEY}`);
+    }
+
+    const response = await fetch(`${API_BASE_URL}/reviews`, {
+        headers: requestHeaders,
+    });
     if (!response.ok) {
         throw new Error('Failed to fetch reviews.');
     }
