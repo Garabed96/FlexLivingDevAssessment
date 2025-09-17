@@ -1,9 +1,11 @@
 'use client';
 
 import { type ColumnDef } from '@tanstack/react-table';
-import { ChevronsUpDown } from 'lucide-react'; // New icon import
-import { Button } from '@/components/ui/button'; // New button import
-import { Badge } from '@/components/ui/badge'; // Import the Badge component
+import { ChevronsUpDown } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Checkbox } from '@/components/ui/checkbox';
+
 import {
   Dialog,
   DialogContent,
@@ -11,12 +13,34 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { type Review } from '@/schemas'; // Using the '@' alias we set up
+import { type Review } from '@/schemas';
 import React from 'react';
 
 // This is the core of the table definition. `ColumnDef` is a generic type,
 // and we pass our `Review` type to it for full type safety.
 export const columns: ColumnDef<Review>[] = [
+  {
+    id: 'select', // Unique ID for this column
+    header: ({ table }) => (
+      <Checkbox
+        checked={
+          table.getIsAllPageRowsSelected() ||
+          (table.getIsSomePageRowsSelected() && 'indeterminate')
+        }
+        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+        aria-label="Select all"
+      />
+    ),
+    cell: ({ row }) => (
+      <Checkbox
+        checked={row.getIsSelected()}
+        onCheckedChange={(value) => row.toggleSelected(!!value)}
+        aria-label="Select row"
+      />
+    ),
+    enableSorting: false, // Selection column shouldn't be sortable
+    enableHiding: false, // Selection column shouldn't be hideable
+  },
   {
     accessorKey: 'guestName',
     header: 'Guest',
@@ -28,6 +52,36 @@ export const columns: ColumnDef<Review>[] = [
       <div className="font-semibold">{row.getValue('listingName')}</div>
     ),
   },
+  {
+    accessorKey: 'status',
+    header: 'Status',
+    cell: ({ row }) => {
+      const status = row.getValue('status') as string;
+
+      const variant: 'default' | 'destructive' | 'secondary' =
+        status === 'published'
+          ? 'default'
+          : status === 'rejected'
+            ? 'destructive'
+            : 'secondary';
+
+      const statusText = status.charAt(0).toUpperCase() + status.slice(1);
+
+      return (
+        <Badge
+          variant={variant}
+          className={`w-[100px] flex justify-center ${
+            status === 'success'
+              ? 'bg-green-500 hover:bg-green-600 text-white'
+              : ''
+          }`}
+        >
+          {statusText}
+        </Badge>
+      );
+    },
+  },
+
   {
     accessorKey: 'publicReview',
     header: 'Review',

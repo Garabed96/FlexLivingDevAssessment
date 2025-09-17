@@ -3,12 +3,18 @@
     {
       "id": 7453,
       "type": "host-to-guest",
-      "status": "published",
+      "status": "success",
       "rating": 10,
       "publicReview": "Shane and his family were wonderful guests! They followed all house rules and left the place in great condition. Would definitely host again. :)",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 10 },
-        { "category": "communication", "rating": 10 }
+        {
+          "category": "cleanliness",
+          "rating": 10
+        },
+        {
+          "category": "communication",
+          "rating": 10
+        }
       ],
       "submittedAt": "2024-08-21T22:45:14Z",
       "guestName": "Shane Finkelstein",
@@ -17,12 +23,18 @@
     {
       "id": 7454,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "success",
       "rating": 8,
       "publicReview": "Great location and stylish apartment. The check-in process was a bit confusing, but the host was very responsive and helped us figure it out quickly.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 9 },
-        { "category": "communication", "rating": 10 }
+        {
+          "category": "cleanliness",
+          "rating": 9
+        },
+        {
+          "category": "communication",
+          "rating": 10
+        }
       ],
       "submittedAt": "2024-08-19T14:12:00Z",
       "guestName": "Maria Rodriguez",
@@ -31,12 +43,18 @@
     {
       "id": 7455,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": null,
       "publicReview": "The property was exactly as described. Very clean and well-maintained. We had a fantastic stay and would recommend it to anyone.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 10 },
-        { "category": "communication", "rating": 9 }
+        {
+          "category": "cleanliness",
+          "rating": 10
+        },
+        {
+          "category": "communication",
+          "rating": 9
+        }
       ],
       "submittedAt": "2024-08-18T11:30:55Z",
       "guestName": "David Chen",
@@ -45,12 +63,18 @@
     {
       "id": 7456,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 6,
       "publicReview": "The view from the balcony was amazing! However, the WiFi was very slow and unreliable, which was an issue for us as we needed to work remotely.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 8 },
-        { "category": "communication", "rating": 7 }
+        {
+          "category": "cleanliness",
+          "rating": 8
+        },
+        {
+          "category": "communication",
+          "rating": 7
+        }
       ],
       "submittedAt": "2024-08-15T09:05:10Z",
       "guestName": "Emily White",
@@ -59,12 +83,18 @@
     {
       "id": 7457,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 9,
       "publicReview": "A perfect little getaway spot. The host provided excellent local recommendations for restaurants and activities. The place was spotless.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 10 },
-        { "category": "communication", "rating": 10 }
+        {
+          "category": "cleanliness",
+          "rating": 10
+        },
+        {
+          "category": "communication",
+          "rating": 10
+        }
       ],
       "submittedAt": "2024-08-12T18:00:00Z",
       "guestName": "James Brown",
@@ -73,12 +103,18 @@
     {
       "id": 7458,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 7,
       "publicReview": "Good value for the price. The apartment is in a central location, making it easy to get around. Some of the furniture was a bit dated, but overall a positive experience.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 7 },
-        { "category": "communication", "rating": 9 }
+        {
+          "category": "cleanliness",
+          "rating": 7
+        },
+        {
+          "category": "communication",
+          "rating": 9
+        }
       ],
       "submittedAt": "2024-08-10T16:45:23Z",
       "guestName": "Jessica Miller",
@@ -87,12 +123,18 @@
     {
       "id": 7459,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 10,
       "publicReview": "Absolutely flawless. The apartment was stunning, the amenities were top-notch, and the host went above and beyond to make our stay special.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 10 },
-        { "category": "communication", "rating": 10 }
+        {
+          "category": "cleanliness",
+          "rating": 10
+        },
+        {
+          "category": "communication",
+          "rating": 10
+        }
       ],
       "submittedAt": "2024-08-09T20:15:00Z",
       "guestName": "Michael Clark",
@@ -101,12 +143,18 @@
     {
       "id": 7460,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 5,
       "publicReview": "The location was convenient, but the apartment had a strong smell of cleaning products that was overwhelming. The noise from the street was also quite loud at night.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 6 },
-        { "category": "communication", "rating": 8 }
+        {
+          "category": "cleanliness",
+          "rating": 6
+        },
+        {
+          "category": "communication",
+          "rating": 8
+        }
       ],
       "submittedAt": "2024-08-05T12:00:30Z",
       "guestName": "Sarah Johnson",
@@ -115,12 +163,18 @@
     {
       "id": 7461,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 9,
       "publicReview": "We loved our stay! The kitchen was fully equipped, and the bed was incredibly comfortable. A short walk to the beach. Highly recommended.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 9 },
-        { "category": "communication", "rating": 9 }
+        {
+          "category": "cleanliness",
+          "rating": 9
+        },
+        {
+          "category": "communication",
+          "rating": 9
+        }
       ],
       "submittedAt": "2024-08-02T15:22:45Z",
       "guestName": "Chris Lee",
@@ -129,12 +183,18 @@
     {
       "id": 7462,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 8,
       "publicReview": "Very nice and clean place. The host was friendly and provided clear instructions. The only downside was the lack of parking.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 10 },
-        { "category": "communication", "rating": 9 }
+        {
+          "category": "cleanliness",
+          "rating": 10
+        },
+        {
+          "category": "communication",
+          "rating": 9
+        }
       ],
       "submittedAt": "2024-07-30T10:10:10Z",
       "guestName": "Patricia King",
@@ -143,12 +203,18 @@
     {
       "id": 7463,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 7,
       "publicReview": "The apartment was spacious and had a nice layout. However, we found some dishes in the cupboard that weren't properly cleaned.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 5 },
-        { "category": "communication", "rating": 9 }
+        {
+          "category": "cleanliness",
+          "rating": 5
+        },
+        {
+          "category": "communication",
+          "rating": 9
+        }
       ],
       "submittedAt": "2024-07-28T19:50:00Z",
       "guestName": "Daniel Wright",
@@ -157,12 +223,18 @@
     {
       "id": 7464,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 10,
       "publicReview": "An amazing experience from start to finish. The host was incredibly welcoming and attentive. The apartment itself was beautiful and in a perfect location.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 10 },
-        { "category": "communication", "rating": 10 }
+        {
+          "category": "cleanliness",
+          "rating": 10
+        },
+        {
+          "category": "communication",
+          "rating": 10
+        }
       ],
       "submittedAt": "2024-07-25T13:00:00Z",
       "guestName": "Laura Hill",
@@ -171,12 +243,18 @@
     {
       "id": 7465,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 8,
       "publicReview": "Solid choice for a weekend trip. The place was clean and had everything we needed. No complaints.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 9 },
-        { "category": "communication", "rating": 8 }
+        {
+          "category": "cleanliness",
+          "rating": 9
+        },
+        {
+          "category": "communication",
+          "rating": 8
+        }
       ],
       "submittedAt": "2024-07-22T09:18:33Z",
       "guestName": "Kevin Scott",
@@ -185,12 +263,18 @@
     {
       "id": 7466,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 9,
       "publicReview": "The host was very accommodating and let us check in early. The apartment was clean, comfortable, and had a great view.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 9 },
-        { "category": "communication", "rating": 10 }
+        {
+          "category": "cleanliness",
+          "rating": 9
+        },
+        {
+          "category": "communication",
+          "rating": 10
+        }
       ],
       "submittedAt": "2024-07-20T17:35:00Z",
       "guestName": "Amanda Green",
@@ -199,12 +283,18 @@
     {
       "id": 7467,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 6,
       "publicReview": "The location is fantastic, right in the heart of the city. The apartment itself could use a deep clean and some minor repairs.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 4 },
-        { "category": "communication", "rating": 8 }
+        {
+          "category": "cleanliness",
+          "rating": 4
+        },
+        {
+          "category": "communication",
+          "rating": 8
+        }
       ],
       "submittedAt": "2024-07-19T11:40:19Z",
       "guestName": "Brian Adams",
@@ -213,12 +303,18 @@
     {
       "id": 7468,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 9,
       "publicReview": "Peaceful and relaxing. The cottage was the perfect escape from the city. We enjoyed the fireplace and the quiet surroundings.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 10 },
-        { "category": "communication", "rating": 9 }
+        {
+          "category": "cleanliness",
+          "rating": 10
+        },
+        {
+          "category": "communication",
+          "rating": 9
+        }
       ],
       "submittedAt": "2024-07-15T14:55:00Z",
       "guestName": "Nancy Baker",
@@ -227,12 +323,18 @@
     {
       "id": 7469,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 8,
       "publicReview": "A great base for exploring the city. The apartment was clean and modern. The host was helpful and easy to communicate with.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 9 },
-        { "category": "communication", "rating": 9 }
+        {
+          "category": "cleanliness",
+          "rating": 9
+        },
+        {
+          "category": "communication",
+          "rating": 9
+        }
       ],
       "submittedAt": "2024-07-14T16:20:51Z",
       "guestName": "Paul Nelson",
@@ -241,12 +343,18 @@
     {
       "id": 7470,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 10,
       "publicReview": "Everything was perfect. The apartment was immaculate and beautifully decorated. We will definitely be back!",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 10 },
-        { "category": "communication", "rating": 10 }
+        {
+          "category": "cleanliness",
+          "rating": 10
+        },
+        {
+          "category": "communication",
+          "rating": 10
+        }
       ],
       "submittedAt": "2024-07-11T12:00:00Z",
       "guestName": "Sandra Carter",
@@ -255,12 +363,18 @@
     {
       "id": 7471,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 7,
       "publicReview": "The check-in was easy and the location is good. The apartment felt a bit smaller than it looked in the photos, but it was fine for a short stay.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 8 },
-        { "category": "communication", "rating": 9 }
+        {
+          "category": "cleanliness",
+          "rating": 8
+        },
+        {
+          "category": "communication",
+          "rating": 9
+        }
       ],
       "submittedAt": "2024-07-10T10:30:00Z",
       "guestName": "Mark Roberts",
@@ -269,12 +383,18 @@
     {
       "id": 7472,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 9,
       "publicReview": "A wonderful stay at the cottage. It was clean, cozy, and had everything we needed for a relaxing weekend. The host was very thoughtful.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 9 },
-        { "category": "communication", "rating": 10 }
+        {
+          "category": "cleanliness",
+          "rating": 9
+        },
+        {
+          "category": "communication",
+          "rating": 10
+        }
       ],
       "submittedAt": "2024-07-08T18:45:00Z",
       "guestName": "Donna Evans",
@@ -283,12 +403,18 @@
     {
       "id": 7473,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 9,
       "publicReview": "Absolutely loved the views and amenities! The perfect place for a relaxing getaway. Everything was spotless.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 9 },
-        { "category": "communication", "rating": 10 }
+        {
+          "category": "cleanliness",
+          "rating": 9
+        },
+        {
+          "category": "communication",
+          "rating": 10
+        }
       ],
       "submittedAt": "2023-11-01T10:00:00Z",
       "guestName": "Olivia White",
@@ -297,12 +423,18 @@
     {
       "id": 7474,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 10,
       "publicReview": "Five stars! The villa exceeded all expectations. Beautifully furnished and very comfortable.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 10 },
-        { "category": "communication", "rating": 10 }
+        {
+          "category": "cleanliness",
+          "rating": 10
+        },
+        {
+          "category": "communication",
+          "rating": 10
+        }
       ],
       "submittedAt": "2023-11-10T11:00:00Z",
       "guestName": "Liam Green",
@@ -311,12 +443,18 @@
     {
       "id": 7475,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 8,
       "publicReview": "Great stay, but the hot tub was a bit cold. Otherwise, very enjoyable and clean.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 8 },
-        { "category": "communication", "rating": 9 }
+        {
+          "category": "cleanliness",
+          "rating": 8
+        },
+        {
+          "category": "communication",
+          "rating": 9
+        }
       ],
       "submittedAt": "2023-11-19T12:00:00Z",
       "guestName": "Sophia Brown",
@@ -325,12 +463,18 @@
     {
       "id": 7476,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 9,
       "publicReview": "Wonderful experience, highly recommend. The host was very responsive.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 9 },
-        { "category": "communication", "rating": 10 }
+        {
+          "category": "cleanliness",
+          "rating": 9
+        },
+        {
+          "category": "communication",
+          "rating": 10
+        }
       ],
       "submittedAt": "2023-11-28T13:00:00Z",
       "guestName": "Noah Black",
@@ -339,12 +483,18 @@
     {
       "id": 7477,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 10,
       "publicReview": "Perfect spot, great for families. No complaints whatsoever.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 10 },
-        { "category": "communication", "rating": 10 }
+        {
+          "category": "cleanliness",
+          "rating": 10
+        },
+        {
+          "category": "communication",
+          "rating": 10
+        }
       ],
       "submittedAt": "2023-12-07T14:00:00Z",
       "guestName": "Isabella Gray",
@@ -353,12 +503,18 @@
     {
       "id": 7478,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 9,
       "publicReview": "Beautiful property, fantastic location. Would definitely come back.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 9 },
-        { "category": "communication", "rating": 9 }
+        {
+          "category": "cleanliness",
+          "rating": 9
+        },
+        {
+          "category": "communication",
+          "rating": 9
+        }
       ],
       "submittedAt": "2023-12-16T15:00:00Z",
       "guestName": "Jackson Blue",
@@ -367,12 +523,18 @@
     {
       "id": 7479,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 8,
       "publicReview": "Good overall, but the internet was a bit spotty at times. Clean and comfortable.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 8 },
-        { "category": "communication", "rating": 8 }
+        {
+          "category": "cleanliness",
+          "rating": 8
+        },
+        {
+          "category": "communication",
+          "rating": 8
+        }
       ],
       "submittedAt": "2023-12-25T16:00:00Z",
       "guestName": "Ava Rose",
@@ -381,12 +543,18 @@
     {
       "id": 7480,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 5,
       "publicReview": "Disappointing. The heating wasn't working well, and it was quite cold.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 6 },
-        { "category": "communication", "rating": 5 }
+        {
+          "category": "cleanliness",
+          "rating": 6
+        },
+        {
+          "category": "communication",
+          "rating": 5
+        }
       ],
       "submittedAt": "2024-01-05T09:00:00Z",
       "guestName": "Lucas Gold",
@@ -395,12 +563,18 @@
     {
       "id": 7481,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 4,
       "publicReview": "Not as advertised. Some amenities were broken, and the cleanliness was questionable.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 4 },
-        { "category": "communication", "rating": 5 }
+        {
+          "category": "cleanliness",
+          "rating": 4
+        },
+        {
+          "category": "communication",
+          "rating": 5
+        }
       ],
       "submittedAt": "2024-01-15T10:00:00Z",
       "guestName": "Mia Silver",
@@ -409,12 +583,18 @@
     {
       "id": 7482,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 6,
       "publicReview": "Okay stay. The location is good, but the property needs some updates. A bit dusty.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 6 },
-        { "category": "communication", "rating": 7 }
+        {
+          "category": "cleanliness",
+          "rating": 6
+        },
+        {
+          "category": "communication",
+          "rating": 7
+        }
       ],
       "submittedAt": "2024-01-25T11:00:00Z",
       "guestName": "Ethan Copper",
@@ -423,12 +603,18 @@
     {
       "id": 7483,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 9,
       "publicReview": "Stunning views and a very peaceful stay. The host provided everything we needed.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 9 },
-        { "category": "communication", "rating": 10 }
+        {
+          "category": "cleanliness",
+          "rating": 9
+        },
+        {
+          "category": "communication",
+          "rating": 10
+        }
       ],
       "submittedAt": "2023-11-03T10:00:00Z",
       "guestName": "Charlotte Pink",
@@ -437,12 +623,18 @@
     {
       "id": 7484,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 10,
       "publicReview": "Absolutely perfect. The cabin was cozy and the area was beautiful for hiking.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 10 },
-        { "category": "communication", "rating": 10 }
+        {
+          "category": "cleanliness",
+          "rating": 10
+        },
+        {
+          "category": "communication",
+          "rating": 10
+        }
       ],
       "submittedAt": "2023-11-12T11:00:00Z",
       "guestName": "Henry Purple",
@@ -451,12 +643,18 @@
     {
       "id": 7485,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 9,
       "publicReview": "Fantastic experience. The property was well-maintained and very clean. Loved it!",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 9 },
-        { "category": "communication", "rating": 9 }
+        {
+          "category": "cleanliness",
+          "rating": 9
+        },
+        {
+          "category": "communication",
+          "rating": 9
+        }
       ],
       "submittedAt": "2023-11-21T12:00:00Z",
       "guestName": "Amelia Cyan",
@@ -465,12 +663,18 @@
     {
       "id": 7486,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 10,
       "publicReview": "Could not ask for a better retreat. The kitchen was fully stocked, and the beds were comfortable.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 10 },
-        { "category": "communication", "rating": 10 }
+        {
+          "category": "cleanliness",
+          "rating": 10
+        },
+        {
+          "category": "communication",
+          "rating": 10
+        }
       ],
       "submittedAt": "2023-11-30T13:00:00Z",
       "guestName": "Benjamin Magenta",
@@ -479,12 +683,18 @@
     {
       "id": 7487,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 8,
       "publicReview": "Enjoyed the stay, good value. Some minor wear and tear, but nothing major.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 8 },
-        { "category": "communication", "rating": 9 }
+        {
+          "category": "cleanliness",
+          "rating": 8
+        },
+        {
+          "category": "communication",
+          "rating": 9
+        }
       ],
       "submittedAt": "2023-12-09T14:00:00Z",
       "guestName": "Evelyn Indigo",
@@ -493,12 +703,18 @@
     {
       "id": 7488,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 9,
       "publicReview": "Peaceful and beautiful. A perfect escape. Host was very responsive.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 9 },
-        { "category": "communication", "rating": 10 }
+        {
+          "category": "cleanliness",
+          "rating": 9
+        },
+        {
+          "category": "communication",
+          "rating": 10
+        }
       ],
       "submittedAt": "2023-12-18T15:00:00Z",
       "guestName": "Daniel Violet",
@@ -507,12 +723,18 @@
     {
       "id": 7489,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 8,
       "publicReview": "Overall good, but the fireplace was difficult to get started. Still cozy.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 8 },
-        { "category": "communication", "rating": 8 }
+        {
+          "category": "cleanliness",
+          "rating": 8
+        },
+        {
+          "category": "communication",
+          "rating": 8
+        }
       ],
       "submittedAt": "2023-12-27T16:00:00Z",
       "guestName": "Harper Jade",
@@ -521,12 +743,18 @@
     {
       "id": 7490,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 5,
       "publicReview": "The water pressure was very low, and the heating wasn't sufficient for the cold nights.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 5 },
-        { "category": "communication", "rating": 6 }
+        {
+          "category": "cleanliness",
+          "rating": 5
+        },
+        {
+          "category": "communication",
+          "rating": 6
+        }
       ],
       "submittedAt": "2024-01-08T09:00:00Z",
       "guestName": "Mason Ruby",
@@ -535,12 +763,18 @@
     {
       "id": 7491,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 4,
       "publicReview": "Dirty and outdated. Very disappointed with the condition of the kitchen.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 3 },
-        { "category": "communication", "rating": 5 }
+        {
+          "category": "cleanliness",
+          "rating": 3
+        },
+        {
+          "category": "communication",
+          "rating": 5
+        }
       ],
       "submittedAt": "2024-01-18T10:00:00Z",
       "guestName": "Ella Sapphire",
@@ -549,12 +783,18 @@
     {
       "id": 7492,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 6,
       "publicReview": "The cabin was okay, but the location was not as secluded as advertised. Some bugs inside.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 6 },
-        { "category": "communication", "rating": 7 }
+        {
+          "category": "cleanliness",
+          "rating": 6
+        },
+        {
+          "category": "communication",
+          "rating": 7
+        }
       ],
       "submittedAt": "2024-01-28T11:00:00Z",
       "guestName": "Aiden Emerald",
@@ -563,12 +803,18 @@
     {
       "id": 7493,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 3,
       "publicReview": "The apartment was very noisy, and the bed was uncomfortable. Hard to get any sleep.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 4 },
-        { "category": "communication", "rating": 3 }
+        {
+          "category": "cleanliness",
+          "rating": 4
+        },
+        {
+          "category": "communication",
+          "rating": 3
+        }
       ],
       "submittedAt": "2023-11-05T10:00:00Z",
       "guestName": "Grace Tan",
@@ -577,12 +823,18 @@
     {
       "id": 7494,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 4,
       "publicReview": "Not great value. The place felt cramped and lacked basic amenities.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 3 },
-        { "category": "communication", "rating": 4 }
+        {
+          "category": "cleanliness",
+          "rating": 3
+        },
+        {
+          "category": "communication",
+          "rating": 4
+        }
       ],
       "submittedAt": "2023-11-14T11:00:00Z",
       "guestName": "Leo Beige",
@@ -591,12 +843,18 @@
     {
       "id": 7495,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 5,
       "publicReview": "It was alright, but the check-in instructions were unclear, causing delays.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 5 },
-        { "category": "communication", "rating": 4 }
+        {
+          "category": "cleanliness",
+          "rating": 5
+        },
+        {
+          "category": "communication",
+          "rating": 4
+        }
       ],
       "submittedAt": "2023-11-23T12:00:00Z",
       "guestName": "Chloe Cream",
@@ -605,12 +863,18 @@
     {
       "id": 7496,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 3,
       "publicReview": "Very disappointing stay. The bathroom wasn't clean, and there was a strange smell.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 2 },
-        { "category": "communication", "rating": 4 }
+        {
+          "category": "cleanliness",
+          "rating": 2
+        },
+        {
+          "category": "communication",
+          "rating": 4
+        }
       ],
       "submittedAt": "2023-12-02T13:00:00Z",
       "guestName": "Frank Olive",
@@ -619,12 +883,18 @@
     {
       "id": 7497,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 4,
       "publicReview": "The host was slow to respond, and the property was not very welcoming.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 5 },
-        { "category": "communication", "rating": 3 }
+        {
+          "category": "cleanliness",
+          "rating": 5
+        },
+        {
+          "category": "communication",
+          "rating": 3
+        }
       ],
       "submittedAt": "2023-12-11T14:00:00Z",
       "guestName": "Lily Khaki",
@@ -633,12 +903,18 @@
     {
       "id": 7498,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 5,
       "publicReview": "Decent location but the apartment itself felt quite run down.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 4 },
-        { "category": "communication", "rating": 5 }
+        {
+          "category": "cleanliness",
+          "rating": 4
+        },
+        {
+          "category": "communication",
+          "rating": 5
+        }
       ],
       "submittedAt": "2023-12-20T15:00:00Z",
       "guestName": "David Mocha",
@@ -647,12 +923,18 @@
     {
       "id": 7499,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 6,
       "publicReview": "Okay for a short stay. It's clean, but very basic inside. No frills.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 6 },
-        { "category": "communication", "rating": 7 }
+        {
+          "category": "cleanliness",
+          "rating": 6
+        },
+        {
+          "category": "communication",
+          "rating": 7
+        }
       ],
       "submittedAt": "2023-12-29T16:00:00Z",
       "guestName": "Sophie Latte",
@@ -661,12 +943,18 @@
     {
       "id": 7500,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 7,
       "publicReview": "Much better than expected! The host was very communicative and the place was quiet.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 7 },
-        { "category": "communication", "rating": 8 }
+        {
+          "category": "cleanliness",
+          "rating": 7
+        },
+        {
+          "category": "communication",
+          "rating": 8
+        }
       ],
       "submittedAt": "2024-01-02T09:00:00Z",
       "guestName": "Jack Espresso",
@@ -675,12 +963,18 @@
     {
       "id": 7501,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 8,
       "publicReview": "Very impressed. The place was clean, well-located, and the host was very accommodating.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 8 },
-        { "category": "communication", "rating": 9 }
+        {
+          "category": "cleanliness",
+          "rating": 8
+        },
+        {
+          "category": "communication",
+          "rating": 9
+        }
       ],
       "submittedAt": "2024-01-12T10:00:00Z",
       "guestName": "Emily Cappuccino",
@@ -689,12 +983,18 @@
     {
       "id": 7502,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 9,
       "publicReview": "A true urban oasis! Clean, modern, and excellent communication from the host.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 9 },
-        { "category": "communication", "rating": 10 }
+        {
+          "category": "cleanliness",
+          "rating": 9
+        },
+        {
+          "category": "communication",
+          "rating": 10
+        }
       ],
       "submittedAt": "2024-01-22T11:00:00Z",
       "guestName": "Oliver Macchiato",
@@ -703,12 +1003,18 @@
     {
       "id": 7503,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 4,
       "publicReview": "The cabin was quite small, and the heating struggled. Not ideal for a winter stay.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 5 },
-        { "category": "communication", "rating": 4 }
+        {
+          "category": "cleanliness",
+          "rating": 5
+        },
+        {
+          "category": "communication",
+          "rating": 4
+        }
       ],
       "submittedAt": "2023-11-07T10:00:00Z",
       "guestName": "Alice Forest",
@@ -717,12 +1023,18 @@
     {
       "id": 7504,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 3,
       "publicReview": "Old and dusty. The description was misleading regarding the 'modern updates'.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 3 },
-        { "category": "communication", "rating": 4 }
+        {
+          "category": "cleanliness",
+          "rating": 3
+        },
+        {
+          "category": "communication",
+          "rating": 4
+        }
       ],
       "submittedAt": "2023-11-16T11:00:00Z",
       "guestName": "Bob Meadow",
@@ -731,12 +1043,18 @@
     {
       "id": 7505,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 5,
       "publicReview": "The lake access was good, but the cabin itself was average. Didn't feel very clean.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 5 },
-        { "category": "communication", "rating": 6 }
+        {
+          "category": "cleanliness",
+          "rating": 5
+        },
+        {
+          "category": "communication",
+          "rating": 6
+        }
       ],
       "submittedAt": "2023-11-25T12:00:00Z",
       "guestName": "Charlie Stream",
@@ -745,12 +1063,18 @@
     {
       "id": 7506,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 4,
       "publicReview": "Noisy neighbors and thin walls. The tranquility wasn't there. Host was unreachable.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 4 },
-        { "category": "communication", "rating": 3 }
+        {
+          "category": "cleanliness",
+          "rating": 4
+        },
+        {
+          "category": "communication",
+          "rating": 3
+        }
       ],
       "submittedAt": "2023-12-04T13:00:00Z",
       "guestName": "Diana River",
@@ -759,12 +1083,18 @@
     {
       "id": 7507,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 3,
       "publicReview": "The cabin really needs a deep clean. Felt like it hadn't been properly cleaned in ages.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 2 },
-        { "category": "communication", "rating": 4 }
+        {
+          "category": "cleanliness",
+          "rating": 2
+        },
+        {
+          "category": "communication",
+          "rating": 4
+        }
       ],
       "submittedAt": "2023-12-13T14:00:00Z",
       "guestName": "Edward Pond",
@@ -773,12 +1103,18 @@
     {
       "id": 7508,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 5,
       "publicReview": "The fireplace was great, but that's about it. The rest was mediocre.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 5 },
-        { "category": "communication", "rating": 5 }
+        {
+          "category": "cleanliness",
+          "rating": 5
+        },
+        {
+          "category": "communication",
+          "rating": 5
+        }
       ],
       "submittedAt": "2023-12-22T15:00:00Z",
       "guestName": "Fiona Lake",
@@ -787,12 +1123,18 @@
     {
       "id": 7509,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 6,
       "publicReview": "Starting to look a bit dated, but the lake views are still a plus.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 6 },
-        { "category": "communication", "rating": 7 }
+        {
+          "category": "cleanliness",
+          "rating": 6
+        },
+        {
+          "category": "communication",
+          "rating": 7
+        }
       ],
       "submittedAt": "2023-12-31T16:00:00Z",
       "guestName": "George Marsh",
@@ -801,12 +1143,18 @@
     {
       "id": 7510,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 7,
       "publicReview": "Much improved! The host was responsive to our issues, and the place felt cleaner.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 7 },
-        { "category": "communication", "rating": 8 }
+        {
+          "category": "cleanliness",
+          "rating": 7
+        },
+        {
+          "category": "communication",
+          "rating": 8
+        }
       ],
       "submittedAt": "2024-01-04T09:00:00Z",
       "guestName": "Hannah Moor",
@@ -815,12 +1163,18 @@
     {
       "id": 7511,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 8,
       "publicReview": "A really pleasant surprise. The cabin was cozy and clean, perfect for a quiet weekend.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 8 },
-        { "category": "communication", "rating": 9 }
+        {
+          "category": "cleanliness",
+          "rating": 8
+        },
+        {
+          "category": "communication",
+          "rating": 9
+        }
       ],
       "submittedAt": "2024-01-14T10:00:00Z",
       "guestName": "Ivan Fen",
@@ -829,12 +1183,18 @@
     {
       "id": 7512,
       "type": "guest-to-host",
-      "status": "published",
+      "status": "pending",
       "rating": 9,
       "publicReview": "Loved it! The views were spectacular, and the cabin was spotless and well-equipped.",
       "reviewCategory": [
-        { "category": "cleanliness", "rating": 9 },
-        { "category": "communication", "rating": 10 }
+        {
+          "category": "cleanliness",
+          "rating": 9
+        },
+        {
+          "category": "communication",
+          "rating": 10
+        }
       ],
       "submittedAt": "2024-01-24T11:00:00Z",
       "guestName": "Julia Bog",

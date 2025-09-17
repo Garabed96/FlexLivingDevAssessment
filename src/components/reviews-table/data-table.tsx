@@ -6,6 +6,7 @@ import {
   ColumnFiltersState,
   SortingState,
   flexRender,
+  RowSelectionState,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
@@ -31,6 +32,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { DataTableFacetedFilter } from '@/components/reviews-table/faceted-filter.tsx';
+import { useUpdateReview } from '@/api/reviews.ts';
 
 // Define the options for the category filter
 const categoryFilterOptions = [
@@ -57,8 +59,11 @@ export function DataTable<TData, TValue>({
     [],
   );
 
+  const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
+
   // Use a ref to reset to the top of the table when the page changes (this way we will always be at the top of the page when navigating)
   const tableContainerRef = React.useRef<HTMLDivElement>(null);
+  const updateReviewMutation = useUpdateReview();
 
   const table = useReactTable({
     data,
@@ -69,9 +74,11 @@ export function DataTable<TData, TValue>({
     getPaginationRowModel: getPaginationRowModel(),
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
+    onRowSelectionChange: setRowSelection,
     state: {
       sorting,
       columnFilters,
+      rowSelection,
     },
   });
 
@@ -86,27 +93,61 @@ export function DataTable<TData, TValue>({
     }
   }, [table.getState().pagination.pageIndex]); // Trigger when pageIndex changes
 
+  const handleStatusChange = (status: 'success' | 'rejected') => {
+    const selectedRows = table.getFilteredSelectedRowModel().rows;
+    selectedRows.forEach((row) => {
+      // Dispatch mutation for each selected row
+      updateReviewMutation.mutate({ id: row.original.id, status });
+    });
+    // Clear selection after action
+    table.resetRowSelection();
+  };
+
   return (
     <div>
-      <div className="flex items-center py-4 space-x-2">
-        <Input
-          placeholder="Filter by property..."
-          value={
-            (table.getColumn('listingName')?.getFilterValue() as string) ?? ''
-          }
-          onChange={(event) =>
-            table.getColumn('listingName')?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
-        />
-        {table.getColumn('reviewCategory') && (
-          <DataTableFacetedFilter
-            column={table.getColumn('reviewCategory')}
-            title="Category"
-            options={categoryFilterOptions}
+      <div className="flex items-center justify-between">
+        <div className="flex flex-1 items-center space-x-2">
+          <Input
+            placeholder="Filter by property..."
+            value={
+              (table.getColumn('listingName')?.getFilterValue() as string) ?? ''
+            }
+            onChange={(event) =>
+              table.getColumn('listingName')?.setFilterValue(event.target.value)
+            }
+            className="h-8 w-[150px] lg:w-[250px]"
           />
-        )}
+          {table.getColumn('reviewCategory') && (
+            <DataTableFacetedFilter
+              column={table.getColumn('reviewCategory')}
+              title="Category"
+              options={categoryFilterOptions}
+            />
+          )}
+        </div>
+        {/* New Approve/Disapprove Buttons */}
+        <div className="flex items-center space-x-2">
+          <Button
+            className="bg-green-500 hover:bg-green-600 text-white"
+            size="sm"
+            onClick={() => handleStatusChange('success')}
+            // Disable if no rows are selected
+            disabled={Object.keys(rowSelection).length === 0}
+          >
+            Publish Selected
+          </Button>
+          <Button
+            variant="destructive"
+            size="sm"
+            onClick={() => handleStatusChange('rejected')}
+            // Disable if no rows are selected
+            disabled={Object.keys(rowSelection).length === 0}
+          >
+            Reject Selected
+          </Button>
+        </div>
       </div>
+
       <div ref={tableContainerRef} className="max-h-[650px] overflow-y-auto">
         <Table>
           <TableHeader>

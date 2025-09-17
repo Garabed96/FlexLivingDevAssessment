@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query';
 import { reviewsSchema, type Review } from '../schemas';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -80,6 +80,44 @@ export const useUpdateReview = () => {
     // After the mutation is successful, invalidate the 'reviews' query
     // to trigger a refetch and ensure the UI has the latest data.
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['reviews'] });
+    },
+    // Optimistic Update: Update the cache before the mutation is sent
+    onMutate: async (updatedReview: Partial<Review> & { id: number }) => {
+      // Cancel any outgoing refetches (so they don't overwrite our optimistic update)
+      await queryClient.cancelQueries({ queryKey: ['reviews'] });
+
+      // Snapshot the previous value
+      const previousReviews = queryClient.getQueryData<Review[]>(['reviews']);
+
+      // Optimistically update the cache for the specific review
+      queryClient.setQueryData<Review[]>(['reviews'], (old) =>
+        old
+          ? old.map((review) =>
+              review.id === updatedReview.id
+                ? { ...review, ...updatedReview }
+                : review,
+            )
+          : [],
+      );
+
+      // Return a context object with the snapshotted value
+      return { previousReviews };
+    },
+    // If the mutation fails, use the context we returned from onMutate to roll back
+    onError: (err, updatedReview, context) => {
+      if (context?.previousReviews) {
+        queryClient.setQueryData(['reviews'], context.previousReviews);
+      }
+      console.log(
+        `Update failed: ${err.message} \n review.id: ${updatedReview.id}`,
+      );
+      // You might want to show a toast/notification here
+      console.error('Failed to update review:', err);
+    },
+    // Always refetch after error or success:
+    // Ensure the todo list is synced with the backend regardless of whether the mutation succeeded or failed.
+    onSettled: () => {
       queryClient.invalidateQueries({ queryKey: ['reviews'] });
     },
   });
