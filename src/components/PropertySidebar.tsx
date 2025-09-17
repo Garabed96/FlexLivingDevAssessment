@@ -17,6 +17,7 @@ interface PropertySidebarProps {
   selectedProperty: string | null;
   onSelectProperty: (propertyName: string | null) => void;
   totalReviews: number;
+  totalProperties: number;
 }
 
 export function PropertySidebar({
@@ -24,6 +25,7 @@ export function PropertySidebar({
   selectedProperty,
   onSelectProperty,
   totalReviews,
+  totalProperties,
 }: PropertySidebarProps) {
   // Determine text color based on overall performance
   const getPerformanceTextColor = (performance: 'good' | 'average' | 'bad') => {
@@ -37,7 +39,7 @@ export function PropertySidebar({
     }
   };
 
-  // Determine trend icon and color
+  // Determine trend icon, text, and color
   const getTrendIndicator = (
     trend: 'up' | 'down' | 'stable',
   ): { icon: React.ReactNode; color: string; text: string } => {
@@ -60,58 +62,70 @@ export function PropertySidebar({
   };
 
   return (
-    <div className="w-1/4 border-r border-gray-200 overflow-y-auto">
-      <div className="p-4">
-        <h2 className="text-xl font-bold mb-4">Properties Overview</h2>
-        <ul className="text-sm">
-          {/* "All Properties" option */}
-          <li
-            className={`cursor-pointer p-2 rounded mb-2 flex items-center justify-between ${
-              selectedProperty === null ? 'bg-blue-100 dark:bg-blue-700' : ''
-            }`}
-            onClick={() => onSelectProperty(null)}
-          >
-            <span>All Properties ({totalReviews} reviews)</span>
-          </li>
+    <div className="w-1/4 p-4 border-r border-gray-200 overflow-y-auto">
+      <h2 className="text-xl font-bold mb-4">Properties Overview</h2>
+      <ul className="text-sm">
+        {/* "All Properties" option */}
+        <li
+          className={`cursor-pointer p-2 rounded mb-2 flex items-center justify-between ${
+            selectedProperty === null ? 'bg-blue-100 dark:bg-blue-700' : ''
+          }`}
+          onClick={() => onSelectProperty(null)}
+        >
+          <span>
+            All {totalProperties} Properties with {totalReviews} reviews
+          </span>
+        </li>
 
-          {/* Individual Property Summaries */}
-          {summaries.map((property) => {
-            const {
-              icon: TrendIcon,
-              color: trendColor,
-              text: trendText,
-            } = getTrendIndicator(property.trend);
-            return (
-              <li
-                key={property.name}
-                className={`cursor-pointer p-2 rounded mb-2 ${
-                  selectedProperty === property.name
-                    ? 'bg-blue-100 dark:bg-blue-700'
-                    : ''
-                }`}
-                onClick={() => onSelectProperty(property.name)}
+        {/* Individual Property Summaries */}
+        {summaries.map((property) => {
+          const {
+            icon: TrendIcon,
+            color: trendColor,
+            text: trendText,
+          } = getTrendIndicator(property.trend);
+          return (
+            <li
+              key={property.name}
+              className={`cursor-pointer p-2 rounded mb-2 ${
+                selectedProperty === property.name
+                  ? 'bg-blue-100 dark:bg-blue-700'
+                  : ''
+              }`}
+              onClick={() => onSelectProperty(property.name)}
+            >
+              <div className="flex items-center justify-between">
+                <h3 className="font-semibold text-base">{property.name}</h3>
+                {TrendIcon && (
+                  <span
+                    className={`flex items-center text-xs font-semibold ${trendColor}`}
+                  >
+                    {TrendIcon}
+                    <span className="ml-1">{trendText}</span>
+                  </span>
+                )}
+              </div>
+              <p className="text-xs text-gray-600 dark:text-gray-400">
+                Reviews: {property.reviewCount}
+              </p>
+              <p
+                className={`text-xs ${getPerformanceTextColor(
+                  property.overallPerformance,
+                )}`}
               >
-                <div className="flex items-center justify-between">
-                  <h3 className="font-semibold text-base">{property.name}</h3>
-                  {/* Render the trend indicator if it exists */}
-                  {TrendIcon && (
-                    <span
-                      className={`flex items-center text-xs font-semibold ${trendColor}`}
-                    >
-                      {TrendIcon}
-                      <span className="ml-1">{trendText}</span>
-                    </span>
-                  )}
-                </div>
-                <p className="text-xs text-gray-600 dark:text-gray-400">
-                  Reviews: {property.reviewCount}
-                </p>
-                {/* ... (rest of the summary details remain the same) ... */}
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+                Overall Avg: {property.averageOverallRating ?? 'N/A'}
+              </p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">
+                Cleanliness Avg: {property.averageCleanlinessRating ?? 'N/A'}
+              </p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">
+                Communication Avg:{' '}
+                {property.averageCommunicationRating ?? 'N/A'}
+              </p>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }

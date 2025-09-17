@@ -193,6 +193,7 @@ function DashboardPage() {
         selectedProperty={selectedProperty}
         onSelectProperty={setSelectedProperty}
         totalReviews={reviews?.length || 0}
+        totalProperties={propertySummaries.length} // Pass the count here
       />
 
       {/* Main Content Area */}
