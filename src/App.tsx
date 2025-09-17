@@ -1,24 +1,36 @@
 import {
   createRouter,
   createRoute,
-  createRootRoute,
+  createRootRouteWithContext,
   RouterProvider,
 } from '@tanstack/react-router';
 import DashboardPage from '@/pages/dashboard.tsx';
 import React from 'react';
+import { RootLayout } from '@/components/RootLayout.tsx';
 
-// 1. Create a root route. This is the top-level layout of our app.
-const rootRoute = createRootRoute();
+// 1. Update the root route to use our layout component
+const rootRoute = createRootRouteWithContext()({
+  component: RootLayout,
+});
 
 // 2. Create the specific routes for our pages
-const dashboardRoute = createRoute({
+const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/',
   component: DashboardPage,
 });
 
+// Create a placeholder for the public reviews page
+const reviewsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/reviews',
+  component: function PublicReviews() {
+    return <div className="p-2">Public Reviews Page - Coming Soon!</div>;
+  },
+});
+
 // 3. Create the route tree
-const routeTree = rootRoute.addChildren([dashboardRoute]);
+const routeTree = rootRoute.addChildren([indexRoute, reviewsRoute]);
 
 // 4. Create the router instance
 const router = createRouter({ routeTree });
