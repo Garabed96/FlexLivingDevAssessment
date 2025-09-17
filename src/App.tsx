@@ -33,7 +33,7 @@ const reviewsRoute = createRoute({
 const routeTree = rootRoute.addChildren([indexRoute, reviewsRoute]);
 
 // 4. Create the router instance
-const router = createRouter({ routeTree, scrollRestoration: 'true' });
+const router = createRouter({ routeTree, scrollRestoration: true });
 
 // 5. Register the router instance for type safety
 declare module '@tanstack/react-router' {
