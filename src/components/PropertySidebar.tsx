@@ -101,6 +101,7 @@ export function PropertySidebar({
           </span>
         </li>
 
+        {/*Performance Filters and Trend Filters*/}
         <div className="space-y-2 px-2 mb-4">
           <div>
             <label className="text-sm font-medium">Filter by Performance</label>
@@ -147,10 +148,15 @@ export function PropertySidebar({
               key={property.name}
               className={`cursor-pointer p-2 rounded-md space-y-1 ${
                 selectedProperty === property.name
-                  ? 'bg-muted'
+                  ? 'bg-primary text-primary-foreground' // Use primary colors when selected
                   : 'hover:bg-muted/50'
               }`}
-              onClick={() => onSelectProperty(property.name)}
+              onClick={
+                () =>
+                  selectedProperty === property.name
+                    ? onSelectProperty(null) // If already selected, deselect
+                    : onSelectProperty(property.name) // Otherwise, select this property
+              }
             >
               <div className="flex items-center justify-between">
                 <h3 className="font-bold text-base">{property.name}</h3>

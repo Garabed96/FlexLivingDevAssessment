@@ -43,11 +43,13 @@ const categoryFilterOptions = [
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  initialFilterProperty?: string | null;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  initialFilterProperty,
 }: DataTableProps<TData, TValue>) {
   // New state to manage the column filters
   const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -55,6 +57,7 @@ export function DataTable<TData, TValue>({
     [],
   );
 
+  // Use a ref to reset to the top of the table when the page changes (this way we will always be at the top of the page when navigating)
   const tableContainerRef = React.useRef<HTMLDivElement>(null);
 
   const table = useReactTable({
@@ -71,6 +74,11 @@ export function DataTable<TData, TValue>({
       columnFilters,
     },
   });
+
+  // This effect syncs the external filter prop with the internal table state
+  React.useEffect(() => {
+    table.getColumn('listingName')?.setFilterValue(initialFilterProperty ?? '');
+  }, [initialFilterProperty, table]);
 
   React.useEffect(() => {
     if (tableContainerRef.current) {
