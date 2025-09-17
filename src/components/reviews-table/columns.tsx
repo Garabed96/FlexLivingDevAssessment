@@ -24,6 +24,9 @@ export const columns: ColumnDef<Review>[] = [
   {
     accessorKey: 'listingName',
     header: 'Property',
+    cell: ({ row }) => (
+      <div className="font-semibold">{row.getValue('listingName')}</div>
+    ),
   },
   {
     accessorKey: 'publicReview',
@@ -109,11 +112,16 @@ export const columns: ColumnDef<Review>[] = [
         return 'default'; // 'default' will use your primary theme color
       };
 
+      const badgeWidthClass = 'w-[140px]'; // Adjusted for slightly more room if needed
+
       return (
         <div className="flex flex-wrap gap-1">
           {categories.map(({ category, rating }) => (
-            <Badge key={category} variant={getBadgeVariant(rating)}>
-              {/* Capitalize category name and show rating */}
+            <Badge
+              key={category}
+              variant={getBadgeVariant(rating)}
+              className={`${getBadgeVariant(rating)} ${badgeWidthClass} flex justify-between`}
+            >
               {`${
                 category.charAt(0).toUpperCase() +
                 category.slice(1).replace(/_/g, ' ')
@@ -138,6 +146,11 @@ export const columns: ColumnDef<Review>[] = [
         </Button>
       );
     },
+    cell: ({ row }) => (
+      <div className="font-semibold text-md text-center">
+        {row.getValue('rating') ?? 'N/A'}
+      </div>
+    ),
   },
   {
     accessorKey: 'submittedAt',

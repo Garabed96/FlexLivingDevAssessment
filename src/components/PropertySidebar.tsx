@@ -171,16 +171,20 @@ export function PropertySidebar({
               </div>
               <div className="text-sm text-muted-foreground space-y-0.5">
                 <p
-                  className={`font-semibold ${getPerformanceTextColor(
+                  className={`font-bold ${getPerformanceTextColor(
                     property.overallPerformance,
                   )}`}
                 >
                   Avg Rating: {property.averageOverallRating ?? 'N/A'}
                 </p>
-                <p>Cleanliness: {property.averageCleanlinessRating ?? 'N/A'}</p>
-                <p>
+
+                <p className="font-semibold">
+                  Cleanliness: {property.averageCleanlinessRating ?? 'N/A'}
+                </p>
+                <p className="font-semibold">
                   Communication: {property.averageCommunicationRating ?? 'N/A'}
                 </p>
+
                 <p>Reviews: {property.reviewCount}</p>
               </div>
             </li>
