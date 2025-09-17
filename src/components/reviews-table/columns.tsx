@@ -4,6 +4,13 @@ import { type ColumnDef } from '@tanstack/react-table';
 import { ChevronsUpDown } from 'lucide-react'; // New icon import
 import { Button } from '@/components/ui/button'; // New button import
 import { Badge } from '@/components/ui/badge'; // Import the Badge component
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 import { type Review } from '@/schemas'; // Using the '@' alias we set up
 import React from 'react';
 
@@ -21,14 +28,31 @@ export const columns: ColumnDef<Review>[] = [
   {
     accessorKey: 'publicReview',
     header: 'Review',
-    // We can customize the cell rendering. Here, we truncate long reviews.
     cell: ({ row }) => {
       const reviewText: string = row.getValue('publicReview');
+      const guestName: string = row.getValue('guestName');
       const maxLength = 100;
-      if (reviewText.length <= maxLength) {
-        return <div>{reviewText}</div>;
-      }
-      return <div>{`${reviewText.substring(0, maxLength)}...`}</div>;
+
+      const truncatedText =
+        reviewText.length > maxLength
+          ? `${reviewText.substring(0, maxLength)}...`
+          : reviewText;
+
+      return (
+        <Dialog>
+          <DialogTrigger asChild>
+            <div className="cursor-pointer hover:underline">
+              {truncatedText}
+            </div>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[600px]">
+            <DialogHeader>
+              <DialogTitle>Review from {guestName}</DialogTitle>
+            </DialogHeader>
+            <div className="py-4 text-sm">{reviewText}</div>
+          </DialogContent>
+        </Dialog>
+      );
     },
   },
   {
