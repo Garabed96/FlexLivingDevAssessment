@@ -67,13 +67,16 @@ export function PropertySidebar({
       <ul className="text-sm">
         {/* "All Properties" option */}
         <li
-          className={`cursor-pointer p-2 rounded mb-2 flex items-center justify-between ${
-            selectedProperty === null ? 'bg-blue-100 dark:bg-blue-700' : ''
+          className={`cursor-pointer p-2 rounded-md flex items-center justify-between text-sm font-semibold ${
+            selectedProperty === null
+              ? 'bg-muted text-primary'
+              : 'hover:bg-muted/50'
           }`}
           onClick={() => onSelectProperty(null)}
         >
-          <span>
-            All {totalProperties} Properties with {totalReviews} reviews
+          <span>All Properties: {totalProperties}</span>
+          <span className="text-muted-foreground">
+            Review Count: {totalReviews}
           </span>
         </li>
 
@@ -87,15 +90,15 @@ export function PropertySidebar({
           return (
             <li
               key={property.name}
-              className={`cursor-pointer p-2 rounded mb-2 ${
+              className={`cursor-pointer p-2 rounded-md space-y-1 ${
                 selectedProperty === property.name
-                  ? 'bg-blue-100 dark:bg-blue-700'
-                  : ''
+                  ? 'bg-muted'
+                  : 'hover:bg-muted/50'
               }`}
               onClick={() => onSelectProperty(property.name)}
             >
               <div className="flex items-center justify-between">
-                <h3 className="font-semibold text-base">{property.name}</h3>
+                <h3 className="font-bold text-base">{property.name}</h3>
                 {TrendIcon && (
                   <span
                     className={`flex items-center text-xs font-semibold ${trendColor}`}
@@ -105,23 +108,20 @@ export function PropertySidebar({
                   </span>
                 )}
               </div>
-              <p className="text-xs text-gray-600 dark:text-gray-400">
-                Reviews: {property.reviewCount}
-              </p>
-              <p
-                className={`text-xs ${getPerformanceTextColor(
-                  property.overallPerformance,
-                )}`}
-              >
-                Overall Avg: {property.averageOverallRating ?? 'N/A'}
-              </p>
-              <p className="text-xs text-gray-600 dark:text-gray-400">
-                Cleanliness Avg: {property.averageCleanlinessRating ?? 'N/A'}
-              </p>
-              <p className="text-xs text-gray-600 dark:text-gray-400">
-                Communication Avg:{' '}
-                {property.averageCommunicationRating ?? 'N/A'}
-              </p>
+              <div className="text-sm text-muted-foreground space-y-0.5">
+                <p
+                  className={`font-semibold ${getPerformanceTextColor(
+                    property.overallPerformance,
+                  )}`}
+                >
+                  Avg Rating: {property.averageOverallRating ?? 'N/A'}
+                </p>
+                <p>Cleanliness: {property.averageCleanlinessRating ?? 'N/A'}</p>
+                <p>
+                  Communication: {property.averageCommunicationRating ?? 'N/A'}
+                </p>
+                <p>Reviews: {property.reviewCount}</p>
+              </div>
             </li>
           );
         })}
