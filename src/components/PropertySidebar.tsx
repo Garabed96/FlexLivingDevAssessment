@@ -175,7 +175,7 @@ export function PropertySidebar({
                     property.overallPerformance,
                   )}`}
                 >
-                  Avg Rating: {property.averageOverallRating ?? 'N/A'}
+                  Average Rating: {property.averageOverallRating ?? 'N/A'}
                 </p>
 
                 <p className="font-semibold">

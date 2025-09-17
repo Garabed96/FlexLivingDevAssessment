@@ -9,7 +9,8 @@
         --argile-100: 36 13% 95%; /* #f5f3ef */
         --card: 0 0% 100%;
         --card-foreground: 222.2 84% 4.9%;
-
+        --gold-100: 48 96% 89%; /* A light yellow for backgrounds */
+        --gold-200: 45 96% 75%; /* A slightly darker yellow for text or borders */
         --popover: 0 0% 100%;
         --popover-foreground: 222.2 84% 4.9%;
         --primary: 222.2 47.4% 11.2%;
