@@ -186,7 +186,7 @@ function DashboardPage() {
   }
 
   return (
-    <div className="flex">
+    <div className="flex h-full">
       {/* Property Sidebar - Replaced with component */}
       <PropertySidebar
         summaries={propertySummaries}
@@ -196,7 +196,7 @@ function DashboardPage() {
       />
 
       {/* Main Content Area */}
-      <div className="flex-1 p-4">
+      <div className="flex-1 p-4 overflow-y-auto">
         <h1 className="text-2xl font-bold mb-4">Reviews Dashboard</h1>
         {/* If there are reviews, render the DataTable. Otherwise show a message. */}
         {reviews ? (
