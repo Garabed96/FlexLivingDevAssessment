@@ -3,7 +3,7 @@ import React from 'react';
 
 export function RootLayout() {
   return (
-    <div className="flex flex-col h-screen bg-background text-foreground">
+    <div className="flex flex-col h-screen">
       <nav className="flex items-center px-16 py-10 bg-argile-100 text-gray-800 shadow-md">
         <div className="flex items-center gap-10">
           {' '}

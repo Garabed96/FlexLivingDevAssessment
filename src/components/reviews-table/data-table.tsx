@@ -55,6 +55,8 @@ export function DataTable<TData, TValue>({
     [],
   );
 
+  const tableContainerRef = React.useRef<HTMLDivElement>(null);
+
   const table = useReactTable({
     data,
     columns,
@@ -69,6 +71,12 @@ export function DataTable<TData, TValue>({
       columnFilters,
     },
   });
+
+  React.useEffect(() => {
+    if (tableContainerRef.current) {
+      tableContainerRef.current.scrollTop = 0; // Scroll to the top
+    }
+  }, [table.getState().pagination.pageIndex]); // Trigger when pageIndex changes
 
   return (
     <div>
@@ -91,7 +99,7 @@ export function DataTable<TData, TValue>({
           />
         )}
       </div>
-      <div className="max-h-[650px] overflow-y-auto">
+      <div ref={tableContainerRef} className="max-h-[650px] overflow-y-auto">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
