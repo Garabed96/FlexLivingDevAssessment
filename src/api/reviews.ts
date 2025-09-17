@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { reviewsSchema, type Review } from '../schemas';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -51,5 +51,36 @@ export const useGetReviews = () => {
     queryKey: ['reviews'],
     // queryFn is the function that will be called to fetch the data.
     queryFn: getReviews,
+  });
+};
+
+export const useUpdateReview = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async ({
+      id,
+      ...updatedData
+    }: Partial<Review> & { id: number }) => {
+      const response = await fetch(
+        `${API_BASE_URL}/api/reviews/hostaway/${id}`,
+        {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(updatedData),
+        },
+      );
+      if (!response.ok) {
+        throw new Error('Failed to update review.');
+      }
+      return response.json();
+    },
+    // After the mutation is successful, invalidate the 'reviews' query
+    // to trigger a refetch and ensure the UI has the latest data.
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['reviews'] });
+    },
   });
 };
