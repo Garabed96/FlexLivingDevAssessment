@@ -1,8 +1,9 @@
 import React from 'react';
 import { useGetReviews } from '../api/reviews';
+import { type Review } from '@/schemas'; // Import Review type
 import { columns } from '@/components/reviews-table/columns';
 import { DataTable } from '@/components/reviews-table/data-table.tsx';
-import { type Review } from '@/schemas'; // Import Review type
+import { PropertySidebar } from '@/components/PropertySidebar'; // New import for the sidebar component
 
 // Define a type for our property summary data
 interface PropertySummary {
@@ -11,11 +12,14 @@ interface PropertySummary {
   averageCleanlinessRating: number | null;
   averageCommunicationRating: number | null;
   reviewCount: number;
+  overallPerformance: 'good' | 'average' | 'bad';
+  trend: 'up' | 'down' | 'stable';
 }
 
 // Utility function to calculate property summaries
 const getPropertySummaries = (reviews: Review[]): PropertySummary[] => {
-  const propertyMap = new Map<
+  const propertyReviewMap = new Map<string, Review[]>();
+  const propertyAggregateMap = new Map<
     string,
     {
       totalOverallRating: number;
@@ -24,72 +28,128 @@ const getPropertySummaries = (reviews: Review[]): PropertySummary[] => {
       cleanlinessCount: number;
       totalCommunicationRating: number;
       communicationCount: number;
+      recentReviewRatings: number[];
     }
   >();
 
+  // Group reviews by property and aggregate initial data
   reviews.forEach((review) => {
     const propertyName = review.listingName;
-    if (!propertyMap.has(propertyName)) {
-      propertyMap.set(propertyName, {
+    if (!propertyReviewMap.has(propertyName)) {
+      propertyReviewMap.set(propertyName, []);
+      propertyAggregateMap.set(propertyName, {
         totalOverallRating: 0,
         overallCount: 0,
         totalCleanlinessRating: 0,
         cleanlinessCount: 0,
         totalCommunicationRating: 0,
         communicationCount: 0,
+        recentReviewRatings: [],
       });
     }
-    const summary = propertyMap.get(propertyName)!;
 
-    // Aggregate Overall Rating
+    propertyReviewMap.get(propertyName)!.push(review);
+    const aggregate = propertyAggregateMap.get(propertyName)!;
+
     if (review.rating !== null) {
-      summary.totalOverallRating += review.rating;
-      summary.overallCount += 1;
+      aggregate.totalOverallRating += review.rating;
+      aggregate.overallCount += 1;
     }
 
-    // Aggregate Category Ratings
     review.reviewCategory.forEach((cat) => {
       if (cat.category === 'cleanliness') {
-        summary.totalCleanlinessRating += cat.rating;
-        summary.cleanlinessCount += 1;
+        aggregate.totalCleanlinessRating += cat.rating;
+        aggregate.cleanlinessCount += 1;
       } else if (cat.category === 'communication') {
-        summary.totalCommunicationRating += cat.rating;
-        summary.communicationCount += 1;
+        aggregate.totalCommunicationRating += cat.rating;
+        aggregate.communicationCount += 1;
       }
-      // Add other categories here if needed
     });
   });
 
-  const summaries: PropertySummary[] = Array.from(propertyMap.entries()).map(
-    ([
-      name,
-      {
-        totalOverallRating,
-        overallCount,
-        totalCleanlinessRating,
-        cleanlinessCount,
-        totalCommunicationRating,
-        communicationCount,
-      },
-    ]) => ({
-      name,
-      averageOverallRating:
-        overallCount > 0
-          ? parseFloat((totalOverallRating / overallCount).toFixed(1))
-          : null,
-      averageCleanlinessRating:
-        cleanlinessCount > 0
-          ? parseFloat((totalCleanlinessRating / cleanlinessCount).toFixed(1))
-          : null,
-      averageCommunicationRating:
-        communicationCount > 0
-          ? parseFloat(
-              (totalCommunicationRating / communicationCount).toFixed(1),
-            )
-          : null,
-      reviewCount: overallCount, // Use overallCount for total reviews
-    }),
-  );
+  const summaries: PropertySummary[] = [];
+
+  // Calculate averages and trends
+  propertyReviewMap.forEach((propReviews, propertyName) => {
+    const aggregate = propertyAggregateMap.get(propertyName)!;
+
+    const averageOverallRating =
+      aggregate.overallCount > 0
+        ? parseFloat(
+            (aggregate.totalOverallRating / aggregate.overallCount).toFixed(1),
+          )
+        : null;
+
+    const averageCleanlinessRating =
+      aggregate.cleanlinessCount > 0
+        ? parseFloat(
+            (
+              aggregate.totalCleanlinessRating / aggregate.cleanlinessCount
+            ).toFixed(1),
+          )
+        : null;
+
+    const averageCommunicationRating =
+      aggregate.communicationCount > 0
+        ? parseFloat(
+            (
+              aggregate.totalCommunicationRating / aggregate.communicationCount
+            ).toFixed(1),
+          )
+        : null;
+
+    // Determine overall performance
+    let overallPerformance: 'good' | 'average' | 'bad' = 'average';
+    if (averageOverallRating !== null) {
+      if (averageOverallRating >= 8.5) {
+        // Good threshold
+        overallPerformance = 'good';
+      } else if (averageOverallRating <= 6.5) {
+        // Bad threshold
+        overallPerformance = 'bad';
+      }
+    }
+
+    // Determine trend based on recent reviews (simplified)
+    // Sort reviews by date descending to get recent ones
+    const sortedReviews = propReviews.sort(
+      (a, b) => b.submittedAt.getTime() - a.submittedAt.getTime(),
+    );
+    const recentReviews = sortedReviews.slice(
+      0,
+      Math.min(3, sortedReviews.length),
+    ); // Consider last 3 reviews
+    const recentOverallRatingSum = recentReviews.reduce(
+      (sum, r) => sum + (r.rating !== null ? r.rating : 0),
+      0,
+    );
+    const recentOverallRatingCount = recentReviews.filter(
+      (r) => r.rating !== null,
+    ).length;
+
+    let trend: 'up' | 'down' | 'stable' = 'stable';
+    if (recentOverallRatingCount > 0 && averageOverallRating !== null) {
+      const averageRecentRating =
+        recentOverallRatingSum / recentOverallRatingCount;
+      const TREND_THRESHOLD = 0.5; // Change in average needed to indicate a trend
+
+      if (averageRecentRating > averageOverallRating + TREND_THRESHOLD) {
+        trend = 'up';
+      } else if (averageRecentRating < averageOverallRating - TREND_THRESHOLD) {
+        trend = 'down';
+      }
+    }
+
+    summaries.push({
+      name: propertyName,
+      averageOverallRating,
+      averageCleanlinessRating,
+      averageCommunicationRating,
+      reviewCount: aggregate.overallCount,
+      overallPerformance,
+      trend,
+    });
+  });
 
   return summaries.sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
 };
@@ -127,52 +187,17 @@ function DashboardPage() {
 
   return (
     <div className="flex">
-      {/* Property Sidebar */}
-      <div className="w-1/4 p-4 border-r border-gray-200">
-        <h2 className="text-xl font-bold mb-4">Properties</h2>
-        <ul className="text-sm">
-          <li
-            className={`cursor-pointer p-2 rounded mb-2 ${
-              selectedProperty === null ? 'bg-blue-100 dark:bg-blue-700' : ''
-            }`}
-            onClick={() => setSelectedProperty(null)}
-          >
-            All Properties ({reviews?.length || 0} reviews)
-          </li>
-          {propertySummaries.map((property) => (
-            <li
-              key={property.name}
-              className={`cursor-pointer p-2 rounded mb-2 ${
-                selectedProperty === property.name
-                  ? 'bg-blue-100 dark:bg-blue-700'
-                  : ''
-              }`}
-              onClick={() => setSelectedProperty(property.name)}
-            >
-              <h3 className="font-semibold">{property.name}</h3>
-              <p className="text-xs text-gray-600 dark:text-gray-400">
-                Reviews: {property.reviewCount}
-              </p>
-              <p className="text-xs text-gray-600 dark:text-gray-400">
-                Overall Avg: {property.averageOverallRating ?? 'N/A'}
-              </p>
-              <p className="text-xs text-gray-600 dark:text-gray-400">
-                Cleanliness Avg: {property.averageCleanlinessRating ?? 'N/A'}
-              </p>
-              <p className="text-xs text-gray-600 dark:text-gray-400">
-                Communication Avg:{' '}
-                {property.averageCommunicationRating ?? 'N/A'}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {/* Property Sidebar - Replaced with component */}
+      <PropertySidebar
+        summaries={propertySummaries}
+        selectedProperty={selectedProperty}
+        onSelectProperty={setSelectedProperty}
+        totalReviews={reviews?.length || 0}
+      />
 
       {/* Main Content Area */}
       <div className="flex-1 p-4">
-        <h1 className="text-2xl font-bold mb-4">
-          Reviews Dashboard ({reviews?.length || 0} reviews)
-        </h1>
+        <h1 className="text-2xl font-bold mb-4">Reviews Dashboard</h1>
         {/* If there are reviews, render the DataTable. Otherwise show a message. */}
         {reviews ? (
           <DataTable
