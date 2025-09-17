@@ -1,5 +1,12 @@
 import React from 'react';
-import { CircleArrowUp, CircleArrowDown } from 'lucide-react'; // Need these icons
+import { CircleArrowUp, CircleArrowDown, MinusCircle } from 'lucide-react'; // Need these icons
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 // Define a type for our property summary data (should match the one in DashboardPage.tsx)
 interface PropertySummary {
@@ -18,6 +25,10 @@ interface PropertySidebarProps {
   onSelectProperty: (propertyName: string | null) => void;
   totalReviews: number;
   totalProperties: number;
+  performanceFilter: string;
+  setPerformanceFilter: (value: string) => void;
+  trendFilter: string;
+  setTrendFilter: (value: string) => void;
 }
 
 export function PropertySidebar({
@@ -26,6 +37,10 @@ export function PropertySidebar({
   onSelectProperty,
   totalReviews,
   totalProperties,
+  performanceFilter,
+  setPerformanceFilter,
+  trendFilter,
+  setTrendFilter,
 }: PropertySidebarProps) {
   // Determine text color based on overall performance
   const getPerformanceTextColor = (performance: 'good' | 'average' | 'bad') => {
@@ -56,8 +71,14 @@ export function PropertySidebar({
           color: 'text-red-500',
           text: 'Trending Down',
         };
+      case 'stable': // Add this new case
+        return {
+          icon: <MinusCircle className="h-4 w-4" />,
+          color: 'text-gray-500',
+          text: 'Stable',
+        };
       default:
-        return { icon: null, color: '', text: '' }; // No indicator for stable
+        return { icon: null, color: '', text: '' }; // Keep as a fallback
     }
   };
 
@@ -79,6 +100,40 @@ export function PropertySidebar({
             Review Count: {totalReviews}
           </span>
         </li>
+
+        <div className="space-y-2 px-2 mb-4">
+          <div>
+            <label className="text-sm font-medium">Filter by Performance</label>
+            <Select
+              value={performanceFilter}
+              onValueChange={setPerformanceFilter}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select performance" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All</SelectItem>
+                <SelectItem value="good">Good (8.5+)</SelectItem>
+                <SelectItem value="average">Average</SelectItem>
+                <SelectItem value="bad">Bad (&lt;=6.5)</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div>
+            <label className="text-sm font-medium">Filter by Trend</label>
+            <Select value={trendFilter} onValueChange={setTrendFilter}>
+              <SelectTrigger>
+                <SelectValue placeholder="Select trend" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All</SelectItem>
+                <SelectItem value="up">Trending Up</SelectItem>
+                <SelectItem value="down">Trending Down</SelectItem>
+                <SelectItem value="stable">Stable</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
 
         {/* Individual Property Summaries */}
         {summaries.map((property) => {

@@ -160,6 +160,10 @@ function DashboardPage() {
     null,
   );
 
+  const [performanceFilter, setPerformanceFilter] = React.useState('all');
+  const [trendFilter, setTrendFilter] = React.useState('all');
+  // --- END: New state ---
+
   const propertySummaries = React.useMemo(() => {
     if (reviews) {
       return getPropertySummaries(reviews);
@@ -167,15 +171,26 @@ function DashboardPage() {
     return [];
   }, [reviews]);
 
+  // Memo the filtered summaries based on performance and trend filters
+  const filteredSummaries = React.useMemo(() => {
+    return propertySummaries.filter((summary) => {
+      const performanceMatch =
+        performanceFilter === 'all' ||
+        summary.overallPerformance === performanceFilter;
+      const trendMatch = trendFilter === 'all' || summary.trend === trendFilter;
+      return performanceMatch && trendMatch;
+    });
+  }, [propertySummaries, performanceFilter, trendFilter]);
+
   // Handle clearing filter if property is no longer in summaries
   React.useEffect(() => {
     if (
       selectedProperty &&
-      !propertySummaries.some((p) => p.name === selectedProperty)
+      !filteredSummaries.some((p) => p.name === selectedProperty)
     ) {
       setSelectedProperty(null);
     }
-  }, [selectedProperty, propertySummaries]);
+  }, [selectedProperty, filteredSummaries]);
 
   if (isLoading) {
     return <div>Loading reviews...</div>;
@@ -189,11 +204,15 @@ function DashboardPage() {
     <div className="flex h-full">
       {/* Property Sidebar */}
       <PropertySidebar
-        summaries={propertySummaries}
+        summaries={filteredSummaries} // Pass the FILTERED summaries
         selectedProperty={selectedProperty}
         onSelectProperty={setSelectedProperty}
         totalReviews={reviews?.length || 0}
-        totalProperties={propertySummaries.length} // Pass the count here
+        totalProperties={propertySummaries.length}
+        performanceFilter={performanceFilter}
+        setPerformanceFilter={setPerformanceFilter}
+        trendFilter={trendFilter}
+        setTrendFilter={setTrendFilter}
       />
 
       {/* Main Content Area */}
