@@ -148,7 +148,7 @@ export function DataTable<TData, TValue>({
         </div>
       </div>
 
-      <div ref={tableContainerRef} className="max-h-[650px] overflow-y-auto">
+      <div ref={tableContainerRef} className="max-h-[850px] overflow-y-auto">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

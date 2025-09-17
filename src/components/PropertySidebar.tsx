@@ -84,7 +84,7 @@ export function PropertySidebar({
 
   return (
     <>
-      <div className="w-1/4 p-4 border-r  border-gray-200 overflow-y-auto">
+      <div className="w-1/4 p-4 border-r  border-gray-200 overflow-y-auto max-h-[1000px]">
         <h2 className="text-xl font-bold mb-4">Properties Overview</h2>
         <ul className="text-sm">
           {/* "All Properties" option */}

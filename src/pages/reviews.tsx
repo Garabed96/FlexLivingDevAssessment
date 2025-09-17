@@ -11,7 +11,7 @@ import {
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { MapPin } from 'lucide-react';
-
+import { Faqs } from '@/faqs';
 export default function ReviewsPage() {
   // Store current index for carousel
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,7 +28,7 @@ export default function ReviewsPage() {
   return (
     <div className="min-h-screen bg-neutral-900 text-neutral-100">
       {/* Main Layout */}
-      <main className="max-w-7xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <main className="max-w-7xl mx-auto p-6 space-y-8">
         {/* Left Column - Images + Description */}
         <div className="lg:col-span-2 space-y-6">
           {/* Title + Address */}
@@ -42,15 +42,27 @@ export default function ReviewsPage() {
           </div>
 
           {/* Image Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-2">
-            {images.map((src, i) => (
+          <div className="grid grid-cols-3 grid-rows-2 gap-2 h-96">
+            {/* Large left image */}
+            <img
+              src={images[0]}
+              alt="Property 1"
+              className="rounded-lg object-cover w-full h-full col-span-1 row-span-2 cursor-pointer"
+              onClick={() => {
+                setCurrentIndex(0);
+                setOpen(true);
+              }}
+            />
+
+            {/* Right 2x2 images */}
+            {images.slice(1).map((src, i) => (
               <img
-                key={i}
+                key={i + 1}
                 src={src}
-                alt={`Property ${i + 1}`}
-                className="rounded-lg object-cover w-full h-40 cursor-pointer"
+                alt={`Property ${i + 2}`}
+                className="rounded-lg object-cover w-full h-full cursor-pointer"
                 onClick={() => {
-                  setCurrentIndex(i);
+                  setCurrentIndex(i + 1);
                   setOpen(true);
                 }}
               />
@@ -108,118 +120,170 @@ export default function ReviewsPage() {
             </DialogContent>
           </Dialog>
 
-          {/* Description */}
-          <div className="space-y-2">
-            <p>
-              Flexliving offers you a charming studio located on the 2nd floor
-              of a beautiful Parisian building in the 14th arrondissement of
-              Paris. It is composed of a double bed, an equipped kitchen and a
-              bathroom with WC.
-            </p>
-            <ul className="list-disc list-inside text-neutral-300">
-              <li>Close to Pernéty metro station (line 13)</li>
-              <li>Wifi available</li>
-              <li>Sheets included</li>
-              <li>Towel not provided</li>
-              <li>Turnkey accommodation, lease from 1 to 10 months</li>
-            </ul>
-          </div>
+          {/* Content + Summary grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Left Content */}
+            <div className="lg:col-span-2 space-y-6">
+              {/* Description */}
+              <div className="space-y-2">
+                <p>
+                  Flexliving offers you a charming studio located on the 2nd
+                  floor of a beautiful Parisian building in the 14th
+                  arrondissement of Paris. It is composed of a double bed, an
+                  equipped kitchen and a bathroom with WC.
+                </p>
+                <ul className="list-disc list-inside text-neutral-300">
+                  <li>Close to Pernéty metro station (line 13)</li>
+                  <li>Wifi available</li>
+                  <li>Sheets included</li>
+                  <li>Towel not provided</li>
+                  <li>Turnkey accommodation, lease from 1 to 10 months</li>
+                </ul>
+              </div>
 
-          {/* Available Rooms */}
-          <section>
-            <h3 className="text-xl font-semibold mb-2">Rooms available</h3>
-            <Card className="bg-neutral-800">
-              <CardContent className="p-4 flex items-center gap-4">
-                <img
-                  src="https://picsum.photos/200/150"
-                  alt="Room"
-                  className="rounded-md"
-                />
-                <div className="flex-1">
-                  <p className="font-medium">Studio</p>
-                  <p className="text-neutral-400">2200€ / month</p>
+              {/* Available Rooms */}
+              <section>
+                <h3 className="text-xl font-semibold mb-2">Rooms available</h3>
+                <Card className="bg-neutral-800">
+                  <CardContent className="p-4 flex items-center gap-4">
+                    <img
+                      src="https://picsum.photos/200/150"
+                      alt="Room"
+                      className="rounded-md"
+                    />
+                    <div className="flex-1">
+                      <p className="font-medium">Studio</p>
+                      <p className="text-neutral-400">2200€ / month</p>
+                    </div>
+                    <Button variant="secondary">Remove this room</Button>
+                  </CardContent>
+                </Card>
+              </section>
+
+              {/* Housing Benefits */}
+              <section>
+                <h3 className="text-xl font-semibold mb-2 mt-8">
+                  Housing benefits
+                </h3>
+                <div className="text-md text-neutral-300 mb-2">Services</div>
+                <ul className="grid grid-cols-2 gap-2 text-neutral-300">
+                  <li>🚫 Pets not allowed</li>
+                  <li>🚭 Non-smoker</li>
+                  <li>🔥 Heating</li>
+                  <li>🧊 Refrigerator</li>
+                  <li>☕ Coffee machine</li>
+                  <li>🧺 Washing machine</li>
+                </ul>
+              </section>
+
+              {/* Neighborhood */}
+              <section>
+                <h3 className="text-xl font-semibold mb-2">The neighborhood</h3>
+                <div className="rounded-lg overflow-hidden">
+                  <img
+                    src="https://picsum.photos/800/300"
+                    alt="Map"
+                    className="w-full object-cover"
+                  />
                 </div>
-                <Button variant="secondary">Remove this room</Button>
-              </CardContent>
-            </Card>
-          </section>
+                <p className="text-neutral-300 mt-2 mb-8">
+                  The Plaisance district in Paris, located in the 14th
+                  arrondissement, offers an urban experience balanced between
+                  work and relaxation. Surrounded by quaint cafes, authentic
+                  bakeries and bustling markets, it seduces with its friendly
+                  atmosphere. The tree-lined streets invite you to stroll, while
+                  the proximity of Montparnasse train station makes business
+                  travel easier. For a cultural break, Montsouris Park offers a
+                  haven of peace, and the famous Montparnasse cemetery reveals
+                  the literary and artistic history of the district. Plaisance
+                  thus embodies the harmonious marriage between urban dynamism
+                  and Parisian charm.
+                </p>
+              </section>
 
-          {/* Housing Benefits */}
-          <section>
-            <h3 className="text-xl font-semibold mb-2">Housing benefits</h3>
-            <ul className="grid grid-cols-2 gap-2 text-neutral-300">
-              <li>🚫 Pets not allowed</li>
-              <li>🚭 Non-smoker</li>
-              <li>🔥 Heating</li>
-              <li>🧊 Refrigerator</li>
-              <li>☕ Coffee machine</li>
-              <li>🧺 Washing machine</li>
-            </ul>
-          </section>
+              {/* Reservation Policy */}
+              <section>
+                <h3 className="text-xl font-semibold mb-2">
+                  Reservation policy
+                </h3>
+                <p className="text-neutral-300 mb-2">
+                  This accommodation is rented monthly for a minimum period of
+                  30 days. If you rent a private room in a shared apartment,
+                  only one person is allowed per room, additional companions are
+                  not allowed. If you rent a studio or a T2, then you have
+                  private accommodation that can accommodate up to two people.
+                </p>
+                <ul className="grid grid-cols-2 gap-2 text-neutral-300">
+                  <p className="font-semibold">Arrival</p>
+                  <p className="font-semibold">Departure</p>
+                  <p>Arrival time</p>
+                  <p>Departure time</p>
+                  <p className="text-neutral-300">from 5:00pm</p>
+                  <p className="text-neutral-300">before 10:00am</p>
+                </ul>
+              </section>
 
-          {/* Neighborhood */}
-          <section>
-            <h3 className="text-xl font-semibold mb-2">The neighborhood</h3>
-            <div className="rounded-lg overflow-hidden">
-              <img
-                src="https://picsum.photos/800/300"
-                alt="Map"
-                className="w-full object-cover"
-              />
+              <section className="space-y-2">
+                {/*  Modification of reservation policy */}
+                <h2 className="text-2xl font-bold text-white font-[var(--fc6ff9ac-7a17-4600-b5da-6cf503a5056b)]">
+                  Modification of reservation policy
+                </h2>
+                <p className="text-neutral-300 mb-2 text-sm">
+                  Reservations can be canceled free of charge 30 days before the
+                  start date of the stay. If the stay is in progress,
+                  cancellation is possible with 30 days' notice. Extensions of
+                  stays are done online, our teams are at your disposal for any
+                  additional questions.
+                </p>
+              </section>
+
+              <section className="space-y-4">
+                {/* Section Header */}
+                <h2 className="text-2xl font-bold text-white font-[var(--fc6ff9ac-7a17-4600-b5da-6cf503a5056b)]">
+                  The most frequently asked questions
+                </h2>
+
+                {/* FAQ Accordion */}
+                <Accordion type="single" collapsible className="w-full">
+                  {Faqs.map((faq, i) => (
+                    <AccordionItem key={i} value={`faq-${i}`}>
+                      <AccordionTrigger className="font-[var(--fc6ff9ac-7a17-4600-b5da-6cf503a5056b)] text-[14px] leading-[150%]">
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="font-[var(--fc6ff9ac-7a17-4600-b5da-6cf503a5056b)] text-[14px] leading-[150%]">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </section>
             </div>
-          </section>
-
-          {/* Reservation Policy */}
-          <section>
-            <h3 className="text-xl font-semibold mb-2">Reservation policy</h3>
-            <p className="text-neutral-300 mb-2">
-              This accommodation is rented monthly for a minimum of 30 days. If
-              you rent a private room in a shared apartment, only one person is
-              allowed per room.
-            </p>
-            <p className="text-neutral-300">Arrival: from 5:00pm</p>
-            <p className="text-neutral-300">Departure: before 10:00am</p>
-          </section>
-
-          {/* FAQ Accordion */}
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="q1">
-              <AccordionTrigger>
-                Q1 - Is it possible to make a visit?
-              </AccordionTrigger>
-              <AccordionContent>No, visits are not possible.</AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="q2">
-              <AccordionTrigger>Q2 - Is bed linen included?</AccordionTrigger>
-              <AccordionContent>Yes, sheets are included.</AccordionContent>
-            </AccordionItem>
-          </Accordion>
+            {/* Right Column - Booking Summary */}
+            <aside className="lg:col-span-1">
+              <Card className="bg-neutral-800 sticky top-6 max-h-[80vh] overflow-auto">
+                <CardContent className="p-6 space-y-4">
+                  <h3 className="text-lg font-bold">Summary</h3>
+                  <p>
+                    Arrival: <span className="font-medium">September 17</span>
+                  </p>
+                  <p>
+                    Departure: <span className="font-medium">October 17</span>
+                  </p>
+                  <div className="border-t border-neutral-700 my-2"></div>
+                  <p className="text-lg">Studio</p>
+                  <p className="text-neutral-400">2200€ per month</p>
+                  <p className="text-neutral-400">2290€ total (incl. fees)</p>
+                  <Button className="w-full bg-lime-500 hover:bg-lime-600 text-black">
+                    Reserve
+                  </Button>
+                  <p className="text-xs text-neutral-500 text-center">
+                    No amount will be charged at this time.
+                  </p>
+                </CardContent>
+              </Card>
+            </aside>
+          </div>
         </div>
-
-        {/* Right Column - Booking Summary */}
-        <aside className="lg:col-span-1">
-          <Card className="bg-neutral-800 sticky top-6">
-            <CardContent className="p-6 space-y-4">
-              <h3 className="text-lg font-bold">Summary</h3>
-              <p>
-                Arrival: <span className="font-medium">September 17</span>
-              </p>
-              <p>
-                Departure: <span className="font-medium">October 17</span>
-              </p>
-              <div className="border-t border-neutral-700 my-2"></div>
-              <p className="text-lg">Studio</p>
-              <p className="text-neutral-400">2200€ per month</p>
-              <p className="text-neutral-400">2290€ total (incl. fees)</p>
-              <Button className="w-full bg-lime-500 hover:bg-lime-600 text-black">
-                Reserve
-              </Button>
-              <p className="text-xs text-neutral-500 text-center">
-                No amount will be charged at this time.
-              </p>
-            </CardContent>
-          </Card>
-        </aside>
       </main>
     </div>
   );

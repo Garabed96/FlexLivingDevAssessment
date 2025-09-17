@@ -7,6 +7,7 @@ import {
 import DashboardPage from '@/pages/dashboard.tsx';
 import React from 'react';
 import { RootLayout } from '@/components/RootLayout.tsx';
+import ReviewsPage from '@/pages/reviews.tsx';
 
 // 1. Update the root route to use our layout component
 const rootRoute = createRootRouteWithContext()({
@@ -24,9 +25,7 @@ const indexRoute = createRoute({
 const reviewsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/reviews',
-  component: function PublicReviews() {
-    return <div className="p-2">Public Reviews Page - Coming Soon!</div>;
-  },
+  component: ReviewsPage,
 });
 
 // 3. Create the route tree
