@@ -72,7 +72,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-      <div className="flex items-center py-4 space-x-4">
+      <div className="flex items-center justify-between py-4">
         <Input
           placeholder="Filter by property..."
           value={
@@ -91,7 +91,7 @@ export function DataTable<TData, TValue>({
           />
         )}
       </div>
-      <div className="rounded-md border">
+      <div className="max-h-[650px] overflow-y-auto">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

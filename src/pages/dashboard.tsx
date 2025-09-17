@@ -187,7 +187,7 @@ function DashboardPage() {
 
   return (
     <div className="flex h-full">
-      {/* Property Sidebar - Replaced with component */}
+      {/* Property Sidebar */}
       <PropertySidebar
         summaries={propertySummaries}
         selectedProperty={selectedProperty}
@@ -196,18 +196,22 @@ function DashboardPage() {
       />
 
       {/* Main Content Area */}
-      <div className="flex-1 p-4 overflow-y-auto">
-        <h1 className="text-2xl font-bold mb-4">Reviews Dashboard</h1>
-        {/* If there are reviews, render the DataTable. Otherwise show a message. */}
-        {reviews ? (
-          <DataTable
-            columns={columns}
-            data={reviews}
-            initialFilterProperty={selectedProperty}
-          />
-        ) : (
-          <p>No reviews found.</p>
-        )}
+      {/* This container will now manage its children's layout and scrolling */}
+      <div className="flex-1 flex flex-col">
+        <div className="flex-1 overflow-y-auto">
+          <div className="p-4">
+            <h1 className="text-2xl font-bold mb-4">Reviews Dashboard</h1>
+            {reviews ? (
+              <DataTable
+                columns={columns}
+                data={reviews}
+                initialFilterProperty={selectedProperty}
+              />
+            ) : (
+              <p>No reviews found.</p>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
