@@ -203,7 +203,7 @@
     {
       "id": 7463,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 7,
       "publicReview": "The apartment was spacious and had a nice layout. However, we found some dishes in the cupboard that weren't properly cleaned.",
       "reviewCategory": [
@@ -223,7 +223,7 @@
     {
       "id": 7464,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 10,
       "publicReview": "An amazing experience from start to finish. The host was incredibly welcoming and attentive. The apartment itself was beautiful and in a perfect location.",
       "reviewCategory": [
@@ -243,7 +243,7 @@
     {
       "id": 7465,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 8,
       "publicReview": "Solid choice for a weekend trip. The place was clean and had everything we needed. No complaints.",
       "reviewCategory": [
@@ -263,7 +263,7 @@
     {
       "id": 7466,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 9,
       "publicReview": "The host was very accommodating and let us check in early. The apartment was clean, comfortable, and had a great view.",
       "reviewCategory": [
@@ -283,7 +283,7 @@
     {
       "id": 7467,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 6,
       "publicReview": "The location is fantastic, right in the heart of the city. The apartment itself could use a deep clean and some minor repairs.",
       "reviewCategory": [
@@ -303,7 +303,7 @@
     {
       "id": 7468,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 9,
       "publicReview": "Peaceful and relaxing. The cottage was the perfect escape from the city. We enjoyed the fireplace and the quiet surroundings.",
       "reviewCategory": [
@@ -323,7 +323,7 @@
     {
       "id": 7469,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 8,
       "publicReview": "A great base for exploring the city. The apartment was clean and modern. The host was helpful and easy to communicate with.",
       "reviewCategory": [
@@ -343,7 +343,7 @@
     {
       "id": 7470,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 10,
       "publicReview": "Everything was perfect. The apartment was immaculate and beautifully decorated. We will definitely be back!",
       "reviewCategory": [
@@ -363,7 +363,7 @@
     {
       "id": 7471,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 7,
       "publicReview": "The check-in was easy and the location is good. The apartment felt a bit smaller than it looked in the photos, but it was fine for a short stay.",
       "reviewCategory": [
@@ -383,7 +383,7 @@
     {
       "id": 7472,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 9,
       "publicReview": "A wonderful stay at the cottage. It was clean, cozy, and had everything we needed for a relaxing weekend. The host was very thoughtful.",
       "reviewCategory": [
@@ -403,7 +403,7 @@
     {
       "id": 7473,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 9,
       "publicReview": "Absolutely loved the views and amenities! The perfect place for a relaxing getaway. Everything was spotless.",
       "reviewCategory": [
@@ -423,7 +423,7 @@
     {
       "id": 7474,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 10,
       "publicReview": "Five stars! The villa exceeded all expectations. Beautifully furnished and very comfortable.",
       "reviewCategory": [
@@ -443,7 +443,7 @@
     {
       "id": 7475,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 8,
       "publicReview": "Great stay, but the hot tub was a bit cold. Otherwise, very enjoyable and clean.",
       "reviewCategory": [
@@ -463,7 +463,7 @@
     {
       "id": 7476,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 9,
       "publicReview": "Wonderful experience, highly recommend. The host was very responsive.",
       "reviewCategory": [
@@ -483,7 +483,7 @@
     {
       "id": 7477,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 10,
       "publicReview": "Perfect spot, great for families. No complaints whatsoever.",
       "reviewCategory": [
@@ -503,7 +503,7 @@
     {
       "id": 7478,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 9,
       "publicReview": "Beautiful property, fantastic location. Would definitely come back.",
       "reviewCategory": [
@@ -523,7 +523,7 @@
     {
       "id": 7479,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 8,
       "publicReview": "Good overall, but the internet was a bit spotty at times. Clean and comfortable.",
       "reviewCategory": [
@@ -543,7 +543,7 @@
     {
       "id": 7480,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 5,
       "publicReview": "Disappointing. The heating wasn't working well, and it was quite cold.",
       "reviewCategory": [
@@ -563,7 +563,7 @@
     {
       "id": 7481,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 4,
       "publicReview": "Not as advertised. Some amenities were broken, and the cleanliness was questionable.",
       "reviewCategory": [
@@ -583,7 +583,7 @@
     {
       "id": 7482,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 6,
       "publicReview": "Okay stay. The location is good, but the property needs some updates. A bit dusty.",
       "reviewCategory": [
@@ -603,7 +603,7 @@
     {
       "id": 7483,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 9,
       "publicReview": "Stunning views and a very peaceful stay. The host provided everything we needed.",
       "reviewCategory": [
@@ -623,7 +623,7 @@
     {
       "id": 7484,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 10,
       "publicReview": "Absolutely perfect. The cabin was cozy and the area was beautiful for hiking.",
       "reviewCategory": [
@@ -643,7 +643,7 @@
     {
       "id": 7485,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 9,
       "publicReview": "Fantastic experience. The property was well-maintained and very clean. Loved it!",
       "reviewCategory": [
@@ -663,7 +663,7 @@
     {
       "id": 7486,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 10,
       "publicReview": "Could not ask for a better retreat. The kitchen was fully stocked, and the beds were comfortable.",
       "reviewCategory": [
@@ -683,7 +683,7 @@
     {
       "id": 7487,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 8,
       "publicReview": "Enjoyed the stay, good value. Some minor wear and tear, but nothing major.",
       "reviewCategory": [
@@ -703,7 +703,7 @@
     {
       "id": 7488,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 9,
       "publicReview": "Peaceful and beautiful. A perfect escape. Host was very responsive.",
       "reviewCategory": [
@@ -723,7 +723,7 @@
     {
       "id": 7489,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 8,
       "publicReview": "Overall good, but the fireplace was difficult to get started. Still cozy.",
       "reviewCategory": [
@@ -743,7 +743,7 @@
     {
       "id": 7490,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 5,
       "publicReview": "The water pressure was very low, and the heating wasn't sufficient for the cold nights.",
       "reviewCategory": [
@@ -763,7 +763,7 @@
     {
       "id": 7491,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 4,
       "publicReview": "Dirty and outdated. Very disappointed with the condition of the kitchen.",
       "reviewCategory": [
@@ -783,7 +783,7 @@
     {
       "id": 7492,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 6,
       "publicReview": "The cabin was okay, but the location was not as secluded as advertised. Some bugs inside.",
       "reviewCategory": [

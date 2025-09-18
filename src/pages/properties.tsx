@@ -37,7 +37,7 @@ const getPropertyDetails = (propertyName) => {
     location: locations[seed % locations.length],
     price: Math.floor((seed % 1000) + 800), // Price between 800-1799
     rating: (3.5 + (seed % 15) / 10).toFixed(1), // Rating between 3.5-5.0
-    reviews: Math.floor((seed % 50) + 10), // Review count between 10-59
+    // reviews: Math.floor((seed % 50) + 10), // This will now come from actual data
     amenities: amenities[seed % amenities.length],
   };
 };
@@ -46,13 +46,32 @@ const getPropertyDetails = (propertyName) => {
 export function PropertysPage() {
   const { data: reviews, isLoading } = useGetReviews();
 
-  const properties = React.useMemo(() => {
+  const propertiesData = React.useMemo(() => {
     if (!reviews) return [];
-    // First, get all reviews that are successfully published
-    const published = reviews.filter((r) => r.status === 'success');
-    // Then, get the unique names of the properties from that list
-    const propertyNames = [...new Set(published.map((r) => r.listingName))];
-    return propertyNames.sort();
+
+    const propertyMap = new Map<
+      string,
+      { name: string; reviewCount: number }
+    >();
+
+    reviews.forEach((review) => {
+      // Only count reviews with 'success' status
+      if (review.status === 'success') {
+        const propertyName = review.listingName;
+        if (!propertyMap.has(propertyName)) {
+          propertyMap.set(propertyName, { name: propertyName, reviewCount: 0 });
+        }
+        const currentProperty = propertyMap.get(propertyName)!;
+        currentProperty.reviewCount += 1;
+      }
+    });
+
+    // Convert map values to an array and sort by name
+    const sortedProperties = Array.from(propertyMap.values()).sort((a, b) =>
+      a.name.localeCompare(b.name),
+    );
+
+    return sortedProperties;
   }, [reviews]);
 
   if (isLoading) {
@@ -93,7 +112,7 @@ export function PropertysPage() {
                 Discover Your Perfect Stay
               </h1>
               <p className="text-base text-neutral-600 dark:text-neutral-400">
-                {properties.length} premium properties available
+                {propertiesData.length} premium properties available
               </p>
             </div>
           </div>
@@ -102,22 +121,22 @@ export function PropertysPage() {
         {/* Scrollable Properties List */}
         <div className="flex-1 overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-neutral-400 dark:scrollbar-thumb-neutral-600 scrollbar-track-transparent">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4">
-            {properties.map((name) => {
-              const details = getPropertyDetails(name);
+            {propertiesData.map((property) => {
+              const details = getPropertyDetails(property.name); // Still using for mock details
 
               return (
                 <Link
-                  key={name}
+                  key={property.name}
                   to="/properties/$propertyName"
-                  params={{ propertyName: encodeURIComponent(name) }}
+                  params={{ propertyName: encodeURIComponent(property.name) }}
                   className="group"
                 >
                   <Card className="overflow-hidden border-0 shadow-md hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1 bg-white dark:bg-neutral-800 h-80 flex flex-col">
                     {/* Property Image */}
                     <div className="relative overflow-hidden flex-shrink-0">
                       <img
-                        src={getPropertyImage(name)}
-                        alt={name}
+                        src={getPropertyImage(property.name)}
+                        alt={property.name}
                         className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-105"
                       />
 
@@ -143,7 +162,7 @@ export function PropertysPage() {
                       {/* Property Name & Location */}
                       <div className="flex-1">
                         <h3 className="font-semibold text-base text-neutral-900 dark:text-white line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                          {name}
+                          {property.name}
                         </h3>
 
                         {/* Location */}
@@ -164,7 +183,7 @@ export function PropertysPage() {
                             {details.rating}
                           </span>
                           <span className="text-sm text-neutral-500">
-                            ({details.reviews} reviews)
+                            ({property.reviewCount} reviews)
                           </span>
                         </div>
 
@@ -196,7 +215,7 @@ export function PropertysPage() {
           </div>
 
           {/* Empty State */}
-          {properties.length === 0 && (
+          {propertiesData.length === 0 && (
             <div className="text-center py-16">
               <div className="space-y-4">
                 <div className="w-24 h-24 mx-auto bg-neutral-200 dark:bg-neutral-700 rounded-full flex items-center justify-center">
