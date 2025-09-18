@@ -1,4 +1,5 @@
 # Flex Living - Reviews Dashboard
+✨ [Live Demo](https://flex-living-dev-assessment.vercel.app/) ✨
 
 This project is a developer assessment task to build a Reviews Dashboard for Flex Living. The dashboard allows managers to assess property performance based on guest reviews, normalize data from a mock API, and manage which reviews are displayed publicly. It provides insights into property performance, enables efficient review management, and demonstrates a modern web application architecture.
 
@@ -76,3 +77,10 @@ The mock API, powered by `json-server`, provides the following behaviors:
 
 -   `pnpm run build`
 -   `pnpm run preview`
+
+## Deployment Notes & Limitations (Vercel)
+
+When deployed on Vercel, the application utilizes serverless functions (`/api/reviews`) to serve review data. Due to the read-only and ephemeral nature of the Vercel serverless filesystem, `PATCH` operations to update review data are currently **simulated** for demonstration purposes.
+
+-   **GET Requests:** Data is successfully read from `db.json` which is bundled with the serverless function.
+-   **PATCH Requests:** The `reviews.js` serverless function accepts `PATCH` requests and returns a success response with the "updated" data. However, these changes are **not persisted** back to `db.json`. Any refreshes of the page will revert to the original data state.
