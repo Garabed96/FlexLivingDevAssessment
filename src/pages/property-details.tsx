@@ -9,11 +9,12 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, ArrowLeft } from 'lucide-react';
 import { MapPin } from 'lucide-react';
 import { Faqs } from '@/faqs.ts'; // Mock FAQ data
 import { useParams } from '@tanstack/react-router';
 import { useGetReviews } from '@/api/reviews';
+import { Link } from '@tanstack/react-router';
 
 export function ReviewsPage() {
   // Store current index for carousel
@@ -52,6 +53,13 @@ export function ReviewsPage() {
     <div className="min-h-screen bg-neutral-900 text-neutral-100">
       {/* Main Layout */}
       <main className="max-w-7xl mx-auto p-6">
+        <Link
+          to="/properties"
+          className="inline-flex items-center gap-2 text-neutral-400 hover:text-neutral-100 transition-colors mb-6"
+        >
+          <ArrowLeft className="h-5 w-5" />
+          <span className="text-sm">Back to Properties</span>
+        </Link>
         {/* Title + Address - Full Width */}
         <div className="mb-8">
           <h2 className="text-3xl font-bold">{propertyData.listingName}</h2>
