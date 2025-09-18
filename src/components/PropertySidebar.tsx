@@ -91,7 +91,7 @@ export function PropertySidebar({
           <li
             className={`cursor-pointer p-2 rounded-md flex items-center justify-between text-sm font-semibold ${
               selectedProperty === null
-                ? 'bg-muted text-primary'
+                ? 'bg-muted text-foreground/350'
                 : 'hover:bg-muted/50'
             }`}
             onClick={() => onSelectProperty(null)}
@@ -151,7 +151,7 @@ export function PropertySidebar({
                 key={property.name}
                 className={`cursor-pointer p-2 rounded-md space-y-1 ${
                   selectedProperty === property.name
-                    ? 'bg-primary text-primary-foreground' // Use primary colors when selected
+                    ? 'bg-green-100 text-green-900 border-2 border-green-300'
                     : 'hover:bg-muted/50'
                 }`}
                 onClick={
