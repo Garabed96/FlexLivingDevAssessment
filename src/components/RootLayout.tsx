@@ -1,5 +1,6 @@
 import { Link, Outlet } from '@tanstack/react-router';
 import React from 'react';
+import { TooltipProvider } from '@/components/ui/tooltip.tsx';
 
 export function RootLayout() {
   return (
@@ -31,9 +32,11 @@ export function RootLayout() {
         </div>
       </nav>
       <hr />
-      <main className="flex-grow overflow-hidden">
-        <Outlet />
-      </main>
+      <TooltipProvider>
+        <main className="flex-grow overflow-hidden">
+          <Outlet />
+        </main>
+      </TooltipProvider>
     </div>
   );
 }

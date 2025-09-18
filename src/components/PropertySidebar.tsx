@@ -1,5 +1,10 @@
 import React from 'react';
-import { CircleArrowUp, CircleArrowDown, MinusCircle } from 'lucide-react'; // Need these icons
+import {
+  CircleArrowUp,
+  CircleArrowDown,
+  MinusCircle,
+  Info,
+} from 'lucide-react'; // Need these icons
 import {
   Select,
   SelectContent,
@@ -7,6 +12,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 // Define a type for our property summary data (should match the one in DashboardPage.tsx)
 interface PropertySummary {
@@ -86,13 +96,14 @@ export function PropertySidebar({
     <>
       <div className="w-1/4 p-4 border-r  border-gray-200 overflow-y-auto max-h-[1000px]">
         <h2 className="text-xl font-bold mb-4">Properties Overview</h2>
+
         <ul className="text-sm">
           {/* "All Properties" option */}
           <li
-            className={`cursor-pointer p-2 rounded-md flex items-center justify-between text-sm font-semibold ${
+            className={`cursor-pointer p-3 rounded-lg flex items-center justify-between text-sm font-semibold border transition-all ${
               selectedProperty === null
-                ? 'bg-muted text-foreground/350'
-                : 'hover:bg-muted/50'
+                ? 'bg-card border-border hover:bg-muted/50 hover:border-muted-foreground/50'
+                : 'bg-green-100 text-green-900 border-2 border-green-300'
             }`}
             onClick={() => onSelectProperty(null)}
           >
@@ -103,10 +114,18 @@ export function PropertySidebar({
           </li>
 
           {/*Performance Filters and Trend Filters*/}
-          <div className="space-y-2 px-2 mb-4">
+          <div className="space-y-2 px-2 my-4">
             <div>
-              <label className="text-sm font-medium">
+              <label className="text-sm font-medium flex items-center gap-1">
                 Filter by Performance
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Info className="h-4 w-4 cursor-help text-muted-foreground hover:text-foreground" />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Filters Overview only</p>
+                  </TooltipContent>
+                </Tooltip>
               </label>
               <Select
                 value={performanceFilter}
@@ -124,7 +143,17 @@ export function PropertySidebar({
               </Select>
             </div>
             <div>
-              <label className="text-sm font-medium">Filter by Trend</label>
+              <label className="text-sm font-medium flex items-center gap-1">
+                Filter by Trend
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Info className="h-4 w-4 cursor-help text-muted-foreground hover:text-foreground" />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Filters Overview only</p>
+                  </TooltipContent>
+                </Tooltip>
+              </label>
               <Select value={trendFilter} onValueChange={setTrendFilter}>
                 <SelectTrigger>
                   <SelectValue placeholder="Select trend" />
