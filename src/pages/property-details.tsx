@@ -50,20 +50,22 @@ export function ReviewsPage() {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
 
   return (
-    <div className="min-h-screen bg-neutral-900 text-neutral-100">
+    <div className="min-h-screen bg-[#FBFAF9] text-neutral-900">
       {/* Main Layout */}
       <main className="max-w-7xl mx-auto p-6">
         <Link
           to="/properties"
-          className="inline-flex items-center gap-2 text-neutral-400 hover:text-neutral-100 transition-colors mb-6"
+          className="inline-flex items-center gap-2 text-neutral-900 hover:text-neutral-100 transition-colors mb-6"
         >
           <ArrowLeft className="h-5 w-5" />
-          <span className="text-sm">Back to Properties</span>
+          <span className="inline-flex items-center gap-2 text-neutral-600 hover:text-neutral-900 transition-colors mb-6">
+            Back to Properties
+          </span>
         </Link>
         {/* Title + Address - Full Width */}
         <div className="mb-8">
           <h2 className="text-3xl font-bold">{propertyData.listingName}</h2>
-          <p className="text-neutral-500 text-lg">{propertyData.type}</p>
+          <p className="text-neutral-900 text-lg">{propertyData.type}</p>
         </div>
 
         {/* Image Grid - Full Width */}
@@ -157,7 +159,7 @@ export function ReviewsPage() {
                 Paris. It is composed of a double bed, an equipped kitchen and a
                 bathroom with WC.
               </p>
-              <ul className="list-disc list-inside text-neutral-300">
+              <ul className="list-disc list-inside text-neutral-900">
                 <li>Close to Pernéty metro station (line 13)</li>
                 <li>Wifi available</li>
                 <li>Sheets included</li>
@@ -169,7 +171,7 @@ export function ReviewsPage() {
             {/* Available Rooms */}
             <section>
               <h3 className="text-xl font-semibold mb-2">Rooms available</h3>
-              <Card className="bg-neutral-800">
+              <Card className="bg-white border-neutral-200">
                 <CardContent className="p-4 flex items-center gap-4">
                   <img
                     src="https://picsum.photos/200/150"
@@ -177,8 +179,8 @@ export function ReviewsPage() {
                     className="rounded-md"
                   />
                   <div className="flex-1">
-                    <p className="font-medium">Studio</p>
-                    <p className="text-neutral-400">2200€ / month</p>
+                    <p className="font-medium text-neutral-900">Studio</p>
+                    <p className="text-neutral-600">2200€ / month</p>
                   </div>
                   <Button variant="secondary">Remove this room</Button>
                 </CardContent>
@@ -190,8 +192,8 @@ export function ReviewsPage() {
               <h3 className="text-xl font-semibold mb-2 mt-8">
                 Housing benefits
               </h3>
-              <div className="text-md text-neutral-300 mb-2">Services</div>
-              <ul className="grid grid-cols-2 gap-2 text-neutral-300">
+              <div className="text-md text-neutral-600 mb-2">Services</div>
+              <ul className="grid grid-cols-2 gap-2 text-neutral-700">
                 <li>🚫 Pets not allowed</li>
                 <li>🚭 Non-smoker</li>
                 <li>🔥 Heating</li>
@@ -211,7 +213,7 @@ export function ReviewsPage() {
                   className="w-full object-cover"
                 />
               </div>
-              <p className="text-neutral-300 mt-2 mb-8">
+              <p className="text-neutral-700 mt-2 mb-8">
                 The Plaisance district in Paris, located in the 14th
                 arrondissement, offers an urban experience balanced between work
                 and relaxation. Surrounded by quaint cafes, authentic bakeries
@@ -228,32 +230,32 @@ export function ReviewsPage() {
             {/* Reservation Policy */}
             <section>
               <h3 className="text-xl font-semibold mb-2">Reservation policy</h3>
-              <p className="text-neutral-300 mb-2">
+              <p className="text-neutral-700 mb-2">
                 This accommodation is rented monthly for a minimum period of 30
                 days. If you rent a private room in a shared apartment, only one
                 person is allowed per room, additional companions are not
                 allowed. If you rent a studio or a T2, then you have private
                 accommodation that can accommodate up to two people.
               </p>
-              <div className="grid grid-cols-2 gap-4 text-neutral-300">
+              <div className="grid grid-cols-2 gap-4 text-neutral-700">
                 <div>
                   <p className="font-semibold">Arrival</p>
                   <p>Arrival time</p>
-                  <p className="text-neutral-300">from 5:00pm</p>
+                  <p className="text-neutral-700">from 5:00pm</p>
                 </div>
                 <div>
                   <p className="font-semibold">Departure</p>
                   <p>Departure time</p>
-                  <p className="text-neutral-300">before 10:00am</p>
+                  <p className="text-neutral-700">before 10:00am</p>
                 </div>
               </div>
             </section>
 
             <section className="space-y-2">
-              <h2 className="text-2xl font-bold text-white">
+              <h2 className="text-2xl font-bold text-neutral-900">
                 Modification of reservation policy
               </h2>
-              <p className="text-neutral-300 mb-2 text-sm">
+              <p className="text-neutral-700 mb-2 text-sm">
                 Reservations can be canceled free of charge 30 days before the
                 start date of the stay. If the stay is in progress, cancellation
                 is possible with 30 days' notice. Extensions of stays are done
@@ -263,7 +265,7 @@ export function ReviewsPage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl font-bold text-white">
+              <h2 className="text-2xl font-bold text-neutral-900">
                 The most frequently asked questions
               </h2>
 
@@ -285,7 +287,7 @@ export function ReviewsPage() {
           {/* Right Column - Sticky Booking Summary */}
           <div className="lg:col-span-1">
             <div className="lg:sticky lg:top-6">
-              <Card className="bg-neutral-800 border-neutral-700">
+              <Card className="bg-neutral-800 border-neutral-700 text-neutral-200">
                 <CardContent className="p-6 space-y-4">
                   <h3 className="text-lg font-bold">Summary</h3>
                   <div className="space-y-2">
