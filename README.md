@@ -1,17 +1,17 @@
 # Flex Living - Reviews Dashboard
 
-This project is a developer assessment task to build a Reviews Dashboard for Flex Living. The dashboard allows managers to assess property performance based on guest reviews, normalize data from a mock API, and manage which reviews are displayed publicly.
+This project is a developer assessment task to build a Reviews Dashboard for Flex Living. The dashboard allows managers to assess property performance based on guest reviews, normalize data from a mock API, and manage which reviews are displayed publicly. It provides insights into property performance, enables efficient review management, and demonstrates a modern web application architecture.
 
 ## Tech Stack
 
--   **Framework**: [React](https://react.dev/) via [Vite](https://vitejs.dev/) (with TypeScript)
+-   **Framework**: [React](https://react.dev/) `18.3.1` via [Vite](https://vitejs.dev/) `5.2.0` (with TypeScript `5.2.2`)
 -   **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
--   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
--   **Data Fetching & State**: [TanStack Query (React Query)](https://tanstack.com/query/latest)
--   **Routing**: [TanStack Router](https://tanstack.com/router/latest)
--   **Data Grid**: [TanStack Table](https://tanstack.com/table/latest)
--   **Schema Validation**: [Zod](https://zod.dev/)
--   **Mock API**: [json-server](https://github.com/typicode/json-server)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/) `3.4.4`
+-   **Data Fetching & State**: [TanStack Query (React Query)](https://tanstack.com/query/latest) `5.89.0`
+-   **Routing**: [TanStack Router](https://tanstack.com/router/latest) `1.131.44`
+-   **Data Grid**: [TanStack Table](https://tanstack.com/table/latest) `8.21.3`
+-   **Schema Validation**: [Zod](https://zod.dev/) `4.1.8`
+-   **Mock API**: [json-server](https://github.com/typicode/json-server) `0.17.4`
 
 ---
 
@@ -19,89 +19,55 @@ This project is a developer assessment task to build a Reviews Dashboard for Fle
 
 Follow these steps to get the project running locally.
 
-1.  **Clone the Repository**
+1.  **Prerequisites**
+    Ensure you have [Node.js](https://nodejs.org/) installed. This project uses `pnpm` for package management, which offers efficient disk space usage and strict dependency management. If you don't have `pnpm`, install it globally:
+
+    ```bash
+    npm install -g pnpm
+    ```
+
+    Alternatively, `npm` or `yarn` can also be used, but `pnpm` is recommended for consistent package installations across different environments, thanks to its content-addressable store and `pnpm-lock.yaml` file.
+
+2.  **Clone the Repository**
 
     ```bash
     git clone <your-repository-url>
     cd <repository-folder>
     ```
 
-2.  **Install Dependencies**
-    Use `npm` to install the required packages.
+3.  **Install Dependencies**
+    Use `pnpm` to install the required packages.
 
     ```bash
-    npm install
+    pnpm install
     ```
 
-3.  **Create the Mock Database**
-    Create a file named `db.json` in the root of the project and paste the provided mock review data into it.
+    If you prefer `npm` or `yarn`, use `npm install` or `yarn install` respectively.
 
-4.  **Run the Mock API Server**
-    In a separate terminal, start the `json-server` to serve the mock review data.
+4.  **Create the Mock Database**
+    Create a file named `db.json` in the root of the project directory. Paste your mock review data into this file. This `db.json` will serve as the database for the mock API.
+
+5.  **Run the Mock API Server**
+    In your first terminal window, start the `json-server` to serve the mock review data. This will provide the backend API for the dashboard.
 
     ```bash
-    npx json-server --watch db.json --port 3001
+    pnpm run dev:api
     ```
-    The API will be available at `http://localhost:3001/reviews`.
+    The API will be available at `http://localhost:3001/reviews`. Keep this terminal running.
 
-5.  **Run the Development Server**
-    In another terminal, start the Vite development server.
+6.  **Run the Development Server**
+    In a separate terminal window, start the Vite development server for the React frontend.
 
     ```bash
-    npm run dev
+    pnpm run dev
     ```
-    The application will be running at `http://localhost:5173`.
-
----
-
-## Development Plan
-
-This project will be built in three main phases:
-
-### Morning Session: Foundation & Data (3-4 hours)
-
-1.  **Setup Environment**: Initialize Vite, `shadcn/ui`, and `json-server`.
-2.  **Define Data Schema**:
-    -   Create a `reviewSchema` using Zod in `src/schemas/`.
-    -   Include `isApproved: z.boolean().optional()` for manager approvals.
-    -   Export the inferred TypeScript `Review` type.
-3.  **Fetch Data**:
-    -   Wrap the application in `QueryClientProvider`.
-    -   Create a `useGetReviews` custom hook in `src/api/` to fetch and parse reviews from `http://localhost:3001/reviews`.
-
-### Afternoon Session: Build The Dashboard (4-5 hours)
-
-1.  **Create Dashboard Page**:
-    -   Set up TanStack Router with a root route and a `/dashboard` route.
-    -   Fetch data on the page using the `useGetReviews` hook.
-2.  **Implement Data Table**:
-    -   Build a `DataTable` component using `shadcn/ui` and TanStack Table.
-    -   Define columns for the table (Author, Rating, Comment, etc.).
-3.  **Add Core Functionality**:
-    -   **Filtering**: Add an `Input` component for live searching.
-    -   **Approval Switch**: Add a `Switch` component column for approvals.
-    -   **Mutation**: Create a `useMutation` hook to send a `PATCH` request to update a review's `isApproved` status. Use optimistic updates for a better UX.
-
-### Finalizing: Public Page & Docs (2-3 hours)
-
-1.  **Build Public Page**:
-    -   Create a new `/property-reviews` route.
-    -   Fetch data and use `.filter()` to display only approved reviews.
-2.  **Google Reviews API**:
-    -   Time-box one hour to research the Google Places API for review integration.
-    -   Document findings in this `README.md`.
-3.  **Final Polish**:
-    -   Update documentation with setup instructions and design decisions.
-    -   Clean up code and perform a final review.
+    The application will be running at `http://localhost:5173`. Open this URL in your browser to access the Reviews Dashboard.
 
 ---
 
 ## API Behaviors
 
+The mock API, powered by `json-server`, provides the following behaviors:
+
 -   **`GET /reviews`**: Fetches all reviews from the `db.json` mock database.
--   **`PATCH /reviews/:id`**: Updates a review object. Used to toggle the `isApproved` boolean.
-    -   *Example Body*: `{ "isApproved": true }`
-
-## Google Reviews Findings
-
-*(To be completed after research)*
+-   **`PATCH /reviews/:id`**: Updates a specific review object identified by its `id`. This is primarily used to toggle the `isApproved` boolean status of a review.
