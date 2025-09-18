@@ -3,7 +3,7 @@
     {
       "id": 7453,
       "type": "host-to-guest",
-      "status": "success",
+      "status": "rejected",
       "rating": 10,
       "publicReview": "Shane and his family were wonderful guests! They followed all house rules and left the place in great condition. Would definitely host again. :)",
       "reviewCategory": [
@@ -143,7 +143,7 @@
     {
       "id": 7460,
       "type": "guest-to-host",
-      "status": "success",
+      "status": "rejected",
       "rating": 5,
       "publicReview": "The location was convenient, but the apartment had a strong smell of cleaning products that was overwhelming. The noise from the street was also quite loud at night.",
       "reviewCategory": [
@@ -283,7 +283,7 @@
     {
       "id": 7467,
       "type": "guest-to-host",
-      "status": "success",
+      "status": "rejected",
       "rating": 6,
       "publicReview": "The location is fantastic, right in the heart of the city. The apartment itself could use a deep clean and some minor repairs.",
       "reviewCategory": [

@@ -162,10 +162,17 @@ const ReviewsSummary: React.FC<ReviewsSummaryProps> = ({ reviews }) => {
 
   if (reviews.length === 0) {
     return (
-      <div className="text-center py-8">
-        <div className="text-neutral-600 text-sm">
-          No published reviews yet for this property.
+      <div className="text-center py-8 space-y-3">
+        <Star className="h-12 w-12 text-neutral-300 mx-auto" />
+        <div>
+          <p className="text-neutral-900 font-medium">No reviews yet</p>
+          <p className="text-neutral-500 text-sm mt-1">
+            Be the first to review this property
+          </p>
         </div>
+        <Button variant="outline" size="sm">
+          Write a Review
+        </Button>
       </div>
     );
   }
@@ -231,6 +238,9 @@ export function ReviewsPage() {
   const [open, setOpen] = useState(false);
   const { propertyName } = useParams({ from: '/properties/$propertyName' });
   const { data: allReviews, isLoading } = useGetReviews();
+  const [imageLoadStates, setImageLoadStates] = useState<
+    Record<number, boolean>
+  >({});
 
   const decodedPropertyName = decodeURIComponent(propertyName);
 
@@ -260,9 +270,21 @@ export function ReviewsPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#FBFAF9] flex items-center justify-center">
-        <div className="animate-pulse text-lg text-neutral-600">
-          Loading property details...
+      <div className="min-h-screen bg-[#FBFAF9] p-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="h-8 w-48 bg-neutral-200 rounded animate-pulse mb-4" />
+          <div className="h-96 bg-neutral-200 rounded-lg animate-pulse mb-8" />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2 space-y-4">
+              {[1, 2, 3].map((i) => (
+                <div
+                  key={i}
+                  className="h-24 bg-neutral-200 rounded animate-pulse"
+                />
+              ))}
+            </div>
+            <div className="h-64 bg-neutral-200 rounded-lg animate-pulse" />
+          </div>
         </div>
       </div>
     );
@@ -322,7 +344,13 @@ export function ReviewsPage() {
           <img
             src={images[0]}
             alt="Property 1"
-            className="rounded-lg object-cover w-full h-full col-span-1 row-span-2 cursor-pointer hover:opacity-90 transition-opacity"
+            className={`rounded-lg object-cover w-full h-full col-span-1 row-span-2 cursor-pointer hover:opacity-90 transition-opacity ${
+              !imageLoadStates[0] ? 'bg-neutral-200 animate-pulse' : ''
+            }`}
+            onLoad={() => setImageLoadStates((prev) => ({ ...prev, 0: true }))}
+            onError={(e) => {
+              e.currentTarget.src = '/placeholder-property.jpg'; // Add a placeholder
+            }}
             onClick={() => {
               setCurrentIndex(0);
               setOpen(true);
