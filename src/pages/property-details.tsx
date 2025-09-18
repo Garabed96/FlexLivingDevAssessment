@@ -23,7 +23,7 @@ import {
   // Heart,
   // Share2,
 } from 'lucide-react';
-import { MapPin } from 'lucide-react';
+// import { MapPin } from 'lucide-react';
 import { Faqs } from '@/faqs.ts';
 import { useParams } from '@tanstack/react-router';
 import { useGetReviews } from '@/api/reviews';
@@ -253,7 +253,7 @@ export function ReviewsPage() {
   const { propertyName } = useParams({ from: '/properties/$propertyName' });
   const { data: allReviews, isLoading } = useGetReviews();
   const [imageLoadStates, setImageLoadStates] = useState<
-    Record<number, boolean>
+    Record<string, boolean>
   >({});
 
   const decodedPropertyName = decodeURIComponent(propertyName);

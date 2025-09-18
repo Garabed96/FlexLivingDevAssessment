@@ -34,6 +34,7 @@ Follow these steps to get the project running locally.
     git clone <your-repository-url>
     cd <repository-folder>
     ```
+    Not necessary since the project is being uploaded on a different platform... 
 
 3.  **Install Dependencies**
     Use `pnpm` to install the required packages.

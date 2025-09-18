@@ -42,13 +42,17 @@ const categoryFilterOptions = [
   { label: 'Low Communication (<=5)', value: 'communication:low' },
 ];
 
-interface DataTableProps<TData, TValue> {
+interface WithId {
+  id: number;
+}
+
+interface DataTableProps<TData extends WithId, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
   initialFilterProperty?: string | null;
 }
 
-export function DataTable<TData, TValue>({
+export function DataTable<TData extends WithId, TValue>({
   columns,
   data,
   initialFilterProperty,

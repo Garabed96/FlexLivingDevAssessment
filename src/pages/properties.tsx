@@ -6,15 +6,17 @@ import { Badge } from '@/components/ui/badge';
 import { MapPin, Star, Users, Wifi, Car } from 'lucide-react';
 
 // Generate consistent random image for each property based on property name
-const getPropertyImage = (propertyName) => {
+const getPropertyImage = (propertyName: string): string => {
   // Use property name to generate consistent seed for same image each time
-  const seed = propertyName.split('').reduce((a, b) => a + b.charCodeAt(0), 0);
+  const seed = propertyName
+    .split('')
+    .reduce((a: number, b: string) => a + b.charCodeAt(0), 0);
   const imageId = (seed % 1000) + 100; // Ensures 3-digit number between 100-1099
   return `https://picsum.photos/400/250?random=${imageId}`;
 };
 
 // Mock function to get property type and details (you can replace with real data)
-const getPropertyDetails = (propertyName) => {
+const getPropertyDetails = (propertyName: string) => {
   const types = ['Studio', 'Apartment', 'House', 'Loft', 'Villa'];
   const locations = [
     'Paris 14th',
@@ -30,7 +32,9 @@ const getPropertyDetails = (propertyName) => {
     ['Wifi', 'Elevator', 'Furnished'],
   ];
 
-  const seed = propertyName.split('').reduce((a, b) => a + b.charCodeAt(0), 0);
+  const seed = propertyName
+    .split('')
+    .reduce((a: number, b: string) => a + b.charCodeAt(0), 0);
 
   return {
     type: types[seed % types.length],
