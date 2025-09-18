@@ -216,20 +216,13 @@ export function PropertysPage() {
       </div>
 
       {/* Right Side - Map Area */}
-      <div className="hidden lg:flex lg:w-1/2 xl:w-3/5 bg-neutral-100 dark:bg-neutral-800">
-        <div className="w-full flex items-center justify-center">
-          <div className="text-center space-y-4">
-            <div className="w-16 h-16 mx-auto bg-neutral-300 dark:bg-neutral-600 rounded-full flex items-center justify-center">
-              <MapPin className="h-8 w-8 text-neutral-500" />
-            </div>
-            <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300">
-              Map View
-            </h3>
-            <p className="text-neutral-500 dark:text-neutral-400">
-              Interactive map will be displayed here
-            </p>
-          </div>
-        </div>
+      <div className="hidden lg:flex lg:w-1/2 xl:w-3/5">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=2.2945%2C48.8566%2C2.3708%2C48.8848&layer=mapnik&marker=48.8606%2C2.3376"
+          className="w-full h-full border-0"
+          title="Paris Map"
+          allowFullScreen
+        />
       </div>
     </div>
   );
