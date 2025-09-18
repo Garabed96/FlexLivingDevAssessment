@@ -31,10 +31,9 @@ Follow these steps to get the project running locally.
 2.  **Clone the Repository**
 
     ```bash
-    git clone <your-repository-url>
-    cd <repository-folder>
-    ```
-    Not necessary since the project is being uploaded on a different platform... 
+    git clone git@github.com:Garabed96/FlexLivingDevAssessment.git
+    cd FlexLivingDevAssessment
+    (If you are reviewing this project from an uploaded archive, you may skip this step.)
 
 3.  **Install Dependencies**
     Use `pnpm` to install the required packages.
@@ -72,3 +71,8 @@ The mock API, powered by `json-server`, provides the following behaviors:
 
 -   **`GET /reviews`**: Fetches all reviews from the `db.json` mock database.
 -   **`PATCH /reviews/:id`**: Updates a specific review object identified by its `id`. This is primarily used to toggle the `isApproved` boolean status of a review.
+
+## NOTE to run production mode
+
+-   `pnpm run build`
+-   `pnpm run preview`

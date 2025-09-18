@@ -1,7 +1,7 @@
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query';
 import { reviewsSchema, type Review } from '../schemas';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
 const ACCOUNT_ID = import.meta.env.VITE_HOSTAWAY_ACCOUNT_ID;
 const API_KEY = import.meta.env.VITE_HOSTAWAY_API_KEY;
 
