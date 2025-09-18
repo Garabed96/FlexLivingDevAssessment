@@ -5,6 +5,7 @@ import { columns } from '@/components/reviews-table/columns';
 import { DataTable } from '@/components/reviews-table/data-table.tsx';
 import { PropertySidebar } from '@/components/PropertySidebar';
 import { DashboardSkeleton } from '@/components/reviews-table/DashboardSkeleton';
+import { AlertCircle } from 'lucide-react';
 
 // Define a type for our property summary data
 interface PropertySummary {
@@ -198,7 +199,28 @@ function DashboardPage() {
   }
 
   if (isError) {
-    return <div>Error fetching reviews: {error.message}</div>;
+    return (
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '10px',
+          color: '#B91C1C',
+          backgroundColor: '#FEE2E2',
+          padding: '15px',
+          borderRadius: '8px',
+          border: '1px solid #FCA5A5',
+        }}
+      >
+        <AlertCircle size={24} />
+        <div>
+          <h4 style={{ margin: 0, fontWeight: 'bold' }}>
+            Error fetching reviews
+          </h4>
+          <p style={{ margin: 0, fontSize: '0.9em' }}>{error.message}</p>
+        </div>
+      </div>
+    );
   }
 
   return (
