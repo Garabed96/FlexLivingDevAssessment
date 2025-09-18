@@ -44,38 +44,38 @@ const getPropertyDetails = (propertyName) => {
 
 // Main component to display a list of all properties with published reviews
 export function PropertysPage() {
-  const { data: reviews, isLoading } = useGetReviews();
+  const { data: allReviews, isLoading } = useGetReviews();
   const [imageLoadStates, setImageLoadStates] = React.useState<
     Record<string, boolean>
   >({});
 
   const propertiesData = React.useMemo(() => {
-    if (!reviews) return [];
+    if (!allReviews) return [];
 
     const propertyMap = new Map<
       string,
       { name: string; reviewCount: number }
     >();
 
-    reviews.forEach((review) => {
+    allReviews.forEach((review) => {
+      const propertyName = review.listingName;
+
+      // Ensure every property is added to the map, even if it has no reviews yet
+      if (!propertyMap.has(propertyName)) {
+        propertyMap.set(propertyName, { name: propertyName, reviewCount: 0 });
+      }
+
       // Only count reviews with 'success' status
       if (review.status === 'success') {
-        const propertyName = review.listingName;
-        if (!propertyMap.has(propertyName)) {
-          propertyMap.set(propertyName, { name: propertyName, reviewCount: 0 });
-        }
         const currentProperty = propertyMap.get(propertyName)!;
         currentProperty.reviewCount += 1;
       }
     });
 
-    // Convert map values to an array and sort by name
-    const sortedProperties = Array.from(propertyMap.values()).sort((a, b) =>
+    return Array.from(propertyMap.values()).sort((a, b) =>
       a.name.localeCompare(b.name),
     );
-
-    return sortedProperties;
-  }, [reviews]);
+  }, [allReviews]);
 
   if (isLoading) {
     return (
@@ -194,12 +194,22 @@ export function PropertysPage() {
                       <div className="space-y-2">
                         {/* Rating & Reviews */}
                         <div className="flex items-center gap-1">
-                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                          <span className="font-medium text-sm text-neutral-900 dark:text-white">
-                            {details.rating}
-                          </span>
                           <span className="text-sm text-neutral-500">
-                            ({property.reviewCount} reviews)
+                            {property.reviewCount > 0 ? (
+                              <div className="flex items-center gap-1">
+                                <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                                <span className="font-medium text-sm text-neutral-900 dark:text-white">
+                                  {details.rating}
+                                </span>
+                                <span className="text-sm text-neutral-500">
+                                  ({property.reviewCount} reviews)
+                                </span>
+                              </div>
+                            ) : (
+                              <span className="text-sm text-neutral-500">
+                                No reviews yet
+                              </span>
+                            )}{' '}
                           </span>
                         </div>
 
