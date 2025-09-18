@@ -224,7 +224,7 @@ function DashboardPage() {
   }
 
   return (
-    <div className="flex h-screen">
+    <div className="flex">
       {/* Property Sidebar */}
       <PropertySidebar
         summaries={filteredSummaries} // Pass the FILTERED summaries
