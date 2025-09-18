@@ -103,7 +103,7 @@
     {
       "id": 7458,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 7,
       "publicReview": "Good value for the price. The apartment is in a central location, making it easy to get around. Some of the furniture was a bit dated, but overall a positive experience.",
       "reviewCategory": [
@@ -123,7 +123,7 @@
     {
       "id": 7459,
       "type": "guest-to-host",
-      "status": "rejected",
+      "status": "success",
       "rating": 10,
       "publicReview": "Absolutely flawless. The apartment was stunning, the amenities were top-notch, and the host went above and beyond to make our stay special.",
       "reviewCategory": [
@@ -143,7 +143,7 @@
     {
       "id": 7460,
       "type": "guest-to-host",
-      "status": "rejected",
+      "status": "success",
       "rating": 5,
       "publicReview": "The location was convenient, but the apartment had a strong smell of cleaning products that was overwhelming. The noise from the street was also quite loud at night.",
       "reviewCategory": [
@@ -163,7 +163,7 @@
     {
       "id": 7461,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 9,
       "publicReview": "We loved our stay! The kitchen was fully equipped, and the bed was incredibly comfortable. A short walk to the beach. Highly recommended.",
       "reviewCategory": [
@@ -183,7 +183,7 @@
     {
       "id": 7462,
       "type": "guest-to-host",
-      "status": "pending",
+      "status": "success",
       "rating": 8,
       "publicReview": "Very nice and clean place. The host was friendly and provided clear instructions. The only downside was the lack of parking.",
       "reviewCategory": [

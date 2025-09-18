@@ -28,10 +28,10 @@ export function RootLayout() {
               Dashboard
             </Link>
             <Link
-              to="/reviews"
+              to="/properties"
               className="uppercase font-semibold text-sm tracking-wider [&.active]:text-primary"
             >
-              Public Reviews
+              Property Listings
             </Link>
           </div>
         </div>

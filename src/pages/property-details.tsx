@@ -11,34 +11,34 @@ import {
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { MapPin } from 'lucide-react';
+import { Faqs } from '@/faqs.ts'; // Mock FAQ data
+import { useParams } from '@tanstack/react-router';
+import { useGetReviews } from '@/api/reviews';
 
-// Mock FAQ data
-const Faqs = [
-  {
-    question: 'What is included in the rent?',
-    answer:
-      'The rent includes utilities, wifi, and basic furnishing. Sheets are provided but towels are not.',
-  },
-  {
-    question: 'Is there a security deposit?',
-    answer:
-      "Yes, a security deposit equivalent to one month's rent is required.",
-  },
-  {
-    question: 'Can I extend my stay?',
-    answer: 'Yes, extensions can be arranged online subject to availability.',
-  },
-  {
-    question: 'Is parking available?',
-    answer:
-      'Street parking is available in the area, but not guaranteed. Public transport is recommended.',
-  },
-];
-
-export default function ReviewsPage() {
+export function ReviewsPage() {
   // Store current index for carousel
   const [currentIndex, setCurrentIndex] = useState(0);
   const [open, setOpen] = useState(false);
+  const { propertyName } = useParams({ from: '/properties/$propertyName' });
+  const { data: reviews, isLoading } = useGetReviews();
+
+  // Find the first review that matches this property to get its data
+  const propertyData = React.useMemo(() => {
+    if (!reviews || !propertyName) return null;
+    return reviews.find(
+      (review) => review.listingName === decodeURIComponent(propertyName),
+    );
+  }, [reviews, propertyName]);
+
+  const decodedPropertyName = decodeURIComponent(propertyName);
+
+  if (isLoading) {
+    return <div>Loading property details...</div>;
+  }
+
+  if (!propertyData) {
+    return <div>Could not find property: {decodedPropertyName}</div>;
+  }
 
   const images = [1, 2, 3, 4, 5].map(
     (i) => `https://picsum.photos/1200/80${i}`,
@@ -54,12 +54,8 @@ export default function ReviewsPage() {
       <main className="max-w-7xl mx-auto p-6">
         {/* Title + Address - Full Width */}
         <div className="mb-8">
-          <h2 className="text-3xl font-bold">
-            Warm 30m² studio near Montparnasse
-          </h2>
-          <p className="text-neutral-400">
-            11 rue Didot, 75014 R+2, Paris 75014
-          </p>
+          <h2 className="text-3xl font-bold">{propertyData.listingName}</h2>
+          <p className="text-neutral-500 text-lg">{propertyData.type}</p>
         </div>
 
         {/* Image Grid - Full Width */}
