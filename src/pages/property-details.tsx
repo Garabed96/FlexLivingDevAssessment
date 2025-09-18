@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { ChevronLeft, ChevronRight, X, ArrowLeft, Star } from 'lucide-react';
 import { MapPin } from 'lucide-react';
 import { Faqs } from '@/faqs.ts';
@@ -30,10 +29,10 @@ const formatRelativeTime = (date: Date): string => {
   if (diffInSeconds < 604800)
     return `${Math.floor(diffInSeconds / 86400)} days ago`;
   if (diffInSeconds < 2419200)
-    return `${Math.floor(diffInSeconds / 604800)} weeks ago`;
-  if (diffInSeconds < 29030400)
     return `${Math.floor(diffInSeconds / 2419200)} months ago`;
-  return `${Math.floor(diffInSeconds / 29030400)} years ago`;
+  if (diffInSeconds < 29030400)
+    return `${Math.floor(diffInSeconds / 29030400)} years ago`;
+  return `${Math.floor(diffInSeconds / 29030400)} years ago`; // Fallback for very old
 };
 
 const getInitials = (name: string): string => {
@@ -75,7 +74,7 @@ const ReviewCard: React.FC<{ review: Review }> = ({ review }) => {
       : review.publicReview;
 
   return (
-    <div className="space-y-3 pb-4 border-b border-neutral-700 last:border-b-0">
+    <div className="space-y-3 pb-4 border-b border-neutral-200 last:border-b-0">
       <div className="flex items-start gap-3">
         <div
           className={`w-10 h-10 bg-gradient-to-br ${getAvatarColor(review.guestName)} rounded-full flex items-center justify-center flex-shrink-0 shadow-sm`}
@@ -87,12 +86,12 @@ const ReviewCard: React.FC<{ review: Review }> = ({ review }) => {
 
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-2">
-            <span className="font-semibold text-white text-sm">
+            <span className="font-semibold text-neutral-900 text-sm">
               {review.guestName}
             </span>
             <span className="text-neutral-500 text-xs">•</span>
-            <span className="text-neutral-400 text-xs">
-              {formatRelativeTime(review.submittedAt)}
+            <span className="text-neutral-600 text-xs">
+              {formatRelativeTime(new Date(review.submittedAt))}
             </span>
           </div>
 
@@ -103,25 +102,25 @@ const ReviewCard: React.FC<{ review: Review }> = ({ review }) => {
                   key={i}
                   className={`h-3 w-3 ${
                     i < Math.round(review.rating! / 2)
-                      ? 'fill-yellow-400 text-yellow-400'
-                      : 'text-neutral-600'
+                      ? 'fill-yellow-500 text-yellow-500'
+                      : 'text-neutral-400'
                   }`}
                 />
               ))}
-              <span className="text-neutral-400 text-xs ml-1">
+              <span className="text-neutral-600 text-xs ml-1">
                 {review.rating}/10
               </span>
             </div>
           )}
 
-          <p className="text-sm text-neutral-300 leading-relaxed mb-2">
+          <p className="text-sm text-neutral-700 leading-relaxed mb-2">
             {displayText}
           </p>
 
           {shouldTruncate && (
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="text-xs text-neutral-400 hover:text-white transition-colors underline"
+              className="text-xs text-blue-600 hover:text-blue-800 transition-colors underline"
             >
               {isExpanded ? 'Show less' : 'Read more'}
             </button>
@@ -164,8 +163,8 @@ const ReviewsSummary: React.FC<ReviewsSummaryProps> = ({ reviews }) => {
   if (reviews.length === 0) {
     return (
       <div className="text-center py-8">
-        <div className="text-neutral-400 text-sm">
-          No published reviews yet for this property
+        <div className="text-neutral-600 text-sm">
+          No published reviews yet for this property.
         </div>
       </div>
     );
@@ -176,12 +175,12 @@ const ReviewsSummary: React.FC<ReviewsSummaryProps> = ({ reviews }) => {
       {/* Header */}
       <div className="flex items-center gap-3 mb-6">
         <div className="flex items-center gap-2">
-          <Star className="h-6 w-6 fill-yellow-400 text-yellow-400" />
-          <span className="text-2xl font-bold text-white">
+          <Star className="h-6 w-6 fill-yellow-500 text-yellow-500" />
+          <span className="text-2xl font-bold text-neutral-900">
             {displayRating.toFixed(1)}
           </span>
         </div>
-        <div className="text-sm text-neutral-400">
+        <div className="text-sm text-neutral-600">
           Based on {reviews.length} review{reviews.length !== 1 ? 's' : ''}
           {totalWithRatings !== reviews.length && (
             <span className="block text-xs">
@@ -202,20 +201,20 @@ const ReviewsSummary: React.FC<ReviewsSummaryProps> = ({ reviews }) => {
             return (
               <div key={stars} className="flex items-center gap-3 text-sm">
                 <div className="flex items-center gap-1 w-16">
-                  <span className="text-neutral-300 w-2 text-right">
+                  <span className="text-neutral-700 w-2 text-right">
                     {stars}
                   </span>
-                  <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                  <Star className="h-3 w-3 fill-yellow-500 text-yellow-500" />
                 </div>
                 <div className="flex-1">
-                  <div className="bg-neutral-700 rounded-full h-2">
+                  <div className="bg-neutral-200 rounded-full h-2">
                     <div
-                      className="bg-yellow-400 rounded-full h-2 transition-all duration-500 ease-out"
+                      className="bg-yellow-500 rounded-full h-2 transition-all duration-500 ease-out"
                       style={{ width: `${percentage}%` }}
                     />
                   </div>
                 </div>
-                <span className="text-neutral-400 w-8 text-right text-xs">
+                <span className="text-neutral-600 w-8 text-right text-xs">
                   {count}
                 </span>
               </div>
@@ -254,7 +253,7 @@ export function ReviewsPage() {
       .sort(
         (a, b) =>
           new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime(),
-      ); // Sort by newest first
+      );
 
     return { propertyData: property, propertyReviews: reviews };
   }, [allReviews, decodedPropertyName, propertyName]);
@@ -281,7 +280,7 @@ export function ReviewsPage() {
           </p>
           <Link
             to="/properties"
-            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors"
+            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Properties
@@ -526,11 +525,11 @@ export function ReviewsPage() {
             </section>
           </div>
 
-          {/* Right Column - Booking Summary & DYNAMIC REVIEWS */}
+          {/* Right Column - Booking Summary & REVIEWS */}
           <div className="lg:col-span-1">
             <div className="lg:sticky lg:top-6 space-y-6">
               {/* Summary Card */}
-              <Card className="bg-neutral-800 border-neutral-700 text-neutral-200">
+              <Card className="bg-white border-neutral-200 text-neutral-900">
                 <CardContent className="p-6 space-y-4">
                   <h3 className="text-lg font-bold">Summary</h3>
                   <div className="space-y-2">
@@ -541,11 +540,11 @@ export function ReviewsPage() {
                       Departure: <span className="font-medium">October 17</span>
                     </p>
                   </div>
-                  <div className="border-t border-neutral-700"></div>
+                  <div className="border-t border-neutral-200"></div>
                   <div className="space-y-2">
                     <p className="text-lg">Studio</p>
-                    <p className="text-neutral-400">2200€ per month</p>
-                    <p className="text-neutral-400 font-semibold">
+                    <p className="text-neutral-600">2200€ / month</p>
+                    <p className="text-neutral-700 font-semibold">
                       2290€ total (incl. fees)
                     </p>
                   </div>
@@ -558,18 +557,18 @@ export function ReviewsPage() {
                 </CardContent>
               </Card>
 
-              {/* DYNAMIC REVIEWS SECTION */}
-              <Card className="bg-neutral-800 border-neutral-700">
+              {/* REVIEWS SECTION */}
+              <Card className="bg-white border-neutral-200">
                 <CardContent className="p-6">
                   <ReviewsSummary reviews={propertyReviews} />
 
                   {propertyReviews.length > 0 && (
                     <div className="space-y-4">
-                      <h4 className="font-semibold text-white text-sm">
+                      <h4 className="font-semibold text-neutral-900 text-sm">
                         Recent Reviews
                       </h4>
 
-                      <div className="max-h-96 overflow-y-auto space-y-1 scrollbar-thin scrollbar-thumb-neutral-600 scrollbar-track-transparent pr-2">
+                      <div className="max-h-96 overflow-y-auto space-y-1 scrollbar-thin scrollbar-thumb-neutral-400 scrollbar-track-transparent pr-2">
                         {propertyReviews.slice(0, 10).map((review) => (
                           <ReviewCard key={review.id} review={review} />
                         ))}
@@ -577,7 +576,7 @@ export function ReviewsPage() {
 
                       {propertyReviews.length > 10 && (
                         <div className="text-center pt-2">
-                          <p className="text-xs text-neutral-400">
+                          <p className="text-xs text-neutral-600">
                             Showing 10 of {propertyReviews.length} reviews
                           </p>
                         </div>
