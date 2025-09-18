@@ -5,7 +5,7 @@ import { ChevronsUpDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
-
+import { Link } from '@tanstack/react-router';
 import {
   Dialog,
   DialogContent,
@@ -49,7 +49,15 @@ export const columns: ColumnDef<Review>[] = [
     accessorKey: 'listingName',
     header: 'Property',
     cell: ({ row }) => (
-      <div className="font-semibold">{row.getValue('listingName')}</div>
+      <Link
+        to="/properties/$propertyName"
+        params={{
+          propertyName: encodeURIComponent(row.getValue('listingName')),
+        }}
+        className="font-semibold hover:underline"
+      >
+        {row.getValue('listingName')}
+      </Link>
     ),
   },
   {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useGetReviews } from '@/api/reviews';
 import { Link } from '@tanstack/react-router';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Star, Users, Wifi, Car } from 'lucide-react';
 
