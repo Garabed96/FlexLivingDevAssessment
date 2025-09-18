@@ -56,21 +56,35 @@ export const useUpdateReview = () => {
       id,
       ...updatedData
     }: Partial<Review> & { id: number }) => {
-      const response = await fetch(
-        `${API_BASE_URL}/api/reviews/hostaway/${id}`,
-        {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(updatedData),
-        },
-      );
+      // The endpoint needs the ID of the review to be updated.
+      const endpoint = isProduction
+        ? `/api/reviews?id=${id}` // Send ID as a query param for the Vercel function
+        : `${API_BASE_URL}/reviews/${id}`; // json-server prefers the ID in the path
+
+      const requestHeaders = new Headers();
+      requestHeaders.set('Content-Type', 'application/json');
+
+      if (isProduction) {
+        // These headers are only needed for the Vercel function
+        const ACCOUNT_ID = import.meta.env.VITE_HOSTAWAY_ACCOUNT_ID;
+        const API_KEY = import.meta.env.VITE_HOSTAWAY_API_KEY;
+        if (ACCOUNT_ID && API_KEY) {
+          requestHeaders.set('X-Account-ID', ACCOUNT_ID);
+          requestHeaders.set('Authorization', `Bearer ${API_KEY}`);
+        }
+      }
+
+      const response = await fetch(endpoint, {
+        method: 'PATCH',
+        headers: requestHeaders,
+        body: JSON.stringify(updatedData),
+      });
       if (!response.ok) {
         throw new Error('Failed to update review.');
       }
       return response.json();
     },
+
     // After the mutation is successful, invalidate the 'reviews' query
     // to trigger a refetch and ensure the UI has the latest data.
     onSuccess: () => {
