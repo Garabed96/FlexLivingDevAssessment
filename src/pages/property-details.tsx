@@ -20,8 +20,8 @@ import {
   Refrigerator,
   Coffee,
   WashingMachine,
-  Heart,
-  Share2,
+  // Heart,
+  // Share2,
 } from 'lucide-react';
 import { MapPin } from 'lucide-react';
 import { Faqs } from '@/faqs.ts';

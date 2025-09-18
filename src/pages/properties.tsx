@@ -45,6 +45,9 @@ const getPropertyDetails = (propertyName) => {
 // Main component to display a list of all properties with published reviews
 export function PropertysPage() {
   const { data: reviews, isLoading } = useGetReviews();
+  const [imageLoadStates, setImageLoadStates] = React.useState<
+    Record<string, boolean>
+  >({});
 
   const propertiesData = React.useMemo(() => {
     if (!reviews) return [];
@@ -137,7 +140,20 @@ export function PropertysPage() {
                       <img
                         src={getPropertyImage(property.name)}
                         alt={property.name}
-                        className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-105"
+                        className={`w-full h-40 object-cover transition-transform duration-300 group-hover:scale-105 ${
+                          !imageLoadStates[property.name]
+                            ? 'bg-neutral-200 dark:bg-neutral-700 animate-pulse'
+                            : ''
+                        }`}
+                        onLoad={() =>
+                          setImageLoadStates((prev) => ({
+                            ...prev,
+                            [property.name]: true,
+                          }))
+                        }
+                        onError={(e) => {
+                          e.currentTarget.src = '/placeholder-property.jpg';
+                        }}
                       />
 
                       {/* Price Badge */}
