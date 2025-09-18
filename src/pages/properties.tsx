@@ -142,7 +142,7 @@ export function PropertysPage() {
                         alt={property.name}
                         className={`w-full h-40 object-cover transition-transform duration-300 group-hover:scale-105 ${
                           !imageLoadStates[property.name]
-                            ? 'bg-neutral-200 dark:bg-neutral-700 animate-pulse'
+                            ? 'bg-neutral-200 dark:bg-neutral-700'
                             : ''
                         }`}
                         onLoad={() =>
