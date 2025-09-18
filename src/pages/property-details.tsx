@@ -8,7 +8,21 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
-import { ChevronLeft, ChevronRight, X, ArrowLeft, Star } from 'lucide-react';
+import {
+  ChevronLeft,
+  ChevronRight,
+  X,
+  ArrowLeft,
+  Star,
+  PawPrint,
+  Cigarette,
+  Flame,
+  Refrigerator,
+  Coffee,
+  WashingMachine,
+  Heart,
+  Share2,
+} from 'lucide-react';
 import { MapPin } from 'lucide-react';
 import { Faqs } from '@/faqs.ts';
 import { useParams } from '@tanstack/react-router';
@@ -331,6 +345,17 @@ export function ReviewsPage() {
           <span className="text-sm">Back to Properties</span>
         </Link>
 
+        {/*<div className="flex gap-2 mb-6">*/}
+        {/*  <Button variant="outline" size="sm">*/}
+        {/*    <Heart className="h-4 w-4 mr-2" />*/}
+        {/*    Save*/}
+        {/*  </Button>*/}
+        {/*  <Button variant="outline" size="sm">*/}
+        {/*    <Share2 className="h-4 w-4 mr-2" />*/}
+        {/*    Share*/}
+        {/*  </Button>*/}
+        {/*</div>*/}
+
         {/* Title + Type */}
         <div className="mb-8">
           <h2 className="text-3xl font-bold">{propertyData.listingName}</h2>
@@ -362,7 +387,15 @@ export function ReviewsPage() {
               key={i + 1}
               src={src}
               alt={`Property ${i + 2}`}
-              className="rounded-lg object-cover w-full h-full cursor-pointer hover:opacity-90 transition-opacity"
+              className={`rounded-lg object-cover w-full h-full cursor-pointer hover:opacity-90 transition-opacity ${
+                !imageLoadStates[i + 1] ? 'bg-neutral-200 animate-pulse' : ''
+              }`}
+              onLoad={() =>
+                setImageLoadStates((prev) => ({ ...prev, [i + 1]: true }))
+              }
+              onError={(e) => {
+                e.currentTarget.src = '/placeholder-property.jpg';
+              }}
               onClick={() => {
                 setCurrentIndex(i + 1);
                 setOpen(true);
@@ -445,8 +478,19 @@ export function ReviewsPage() {
                   <img
                     src="https://picsum.photos/200/150"
                     alt="Room"
-                    className="rounded-md"
+                    className={`rounded-md w-[200px] h-[150px] object-cover ${
+                      !imageLoadStates['room']
+                        ? 'bg-neutral-200 animate-pulse'
+                        : ''
+                    }`}
+                    onLoad={() =>
+                      setImageLoadStates((prev) => ({ ...prev, room: true }))
+                    }
+                    onError={(e) => {
+                      e.currentTarget.src = '/placeholder-room.jpg';
+                    }}
                   />
+
                   <div className="flex-1">
                     <p className="font-medium text-neutral-900">Studio</p>
                     <p className="text-neutral-600">2200€ / month</p>
@@ -463,23 +507,51 @@ export function ReviewsPage() {
               </h3>
               <div className="text-md text-neutral-600 mb-2">Services</div>
               <ul className="grid grid-cols-2 gap-2 text-neutral-700">
-                <li>🚫 Pets not allowed</li>
-                <li>🚭 Non-smoker</li>
-                <li>🔥 Heating</li>
-                <li>🧊 Refrigerator</li>
-                <li>☕ Coffee machine</li>
-                <li>🧺 Washing machine</li>
+                <li className="flex items-center gap-2 text-neutral-700">
+                  <PawPrint className="h-4 w-4 text-red-500" />
+                  <span>Pets not allowed</span>
+                </li>
+                <li className="flex items-center gap-2 text-neutral-700">
+                  <Cigarette className="h-4 w-4 text-red-500" />
+                  <span>Non-smoker</span>
+                </li>
+                <li className="flex items-center gap-2 text-neutral-700">
+                  <Flame className="h-4 w-4 text-green-500" />
+                  <span>Heating included</span>
+                </li>
+                <li className="flex items-center gap-2 text-neutral-700">
+                  <Refrigerator className="h-4 w-4 text-green-500" />
+                  <span>Refrigerator</span>
+                </li>
+                <li className="flex items-center gap-2 text-neutral-700">
+                  <Coffee className="h-4 w-4 text-green-500" />
+                  <span>Coffee Machine</span>
+                </li>
+                <li className="flex items-center gap-2 text-neutral-700">
+                  <WashingMachine className="h-4 w-4 text-green-500" />
+                  <span>Washing Machine</span>
+                </li>
               </ul>
             </section>
 
             {/* Neighborhood */}
             <section>
-              <h3 className="text-xl font-semibold mb-2">The neighborhood</h3>
+              <h3 className="text-xl font-semibold mb-4">The neighborhood</h3>
               <div className="rounded-lg overflow-hidden">
                 <img
                   src="https://picsum.photos/800/300"
                   alt="Map"
-                  className="w-full object-cover"
+                  className={`rounded-md w-[800px] h-[300px] object-cover ${
+                    !imageLoadStates['room']
+                      ? 'bg-neutral-200 animate-pulse'
+                      : ''
+                  }`}
+                  onLoad={() =>
+                    setImageLoadStates((prev) => ({ ...prev, room: true }))
+                  }
+                  onError={(e) => {
+                    e.currentTarget.src = '/placeholder-room.jpg';
+                  }}
                 />
               </div>
               <p className="text-neutral-700 mt-2 mb-8">
