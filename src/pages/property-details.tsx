@@ -55,12 +55,10 @@ export function ReviewsPage() {
       <main className="max-w-7xl mx-auto p-6">
         <Link
           to="/properties"
-          className="inline-flex items-center gap-2 text-neutral-900 hover:text-neutral-100 transition-colors mb-6"
+          className="inline-flex items-center gap-2 text-neutral-600 hover:text-neutral-900 transition-colors mb-6"
         >
           <ArrowLeft className="h-5 w-5" />
-          <span className="inline-flex items-center gap-2 text-neutral-600 hover:text-neutral-900 transition-colors mb-6">
-            Back to Properties
-          </span>
+          <span className="text-sm">Back to Properties</span>
         </Link>
         {/* Title + Address - Full Width */}
         <div className="mb-8">
