@@ -1,4 +1,4 @@
-import db from './db.json';
+import db from './db.json' with { type: 'json' };
 
 export default function handler(req, res) {
   const { id } = req.query;
