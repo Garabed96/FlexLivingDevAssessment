@@ -3,7 +3,8 @@ import { useGetReviews } from '../api/reviews';
 import { type Review } from '@/schemas'; // Import Review type
 import { columns } from '@/components/reviews-table/columns';
 import { DataTable } from '@/components/reviews-table/data-table.tsx';
-import { PropertySidebar } from '@/components/PropertySidebar'; // New import for the sidebar component
+import { PropertySidebar } from '@/components/PropertySidebar';
+import { DashboardSkeleton } from '@/components/reviews-table/DashboardSkeleton';
 
 // Define a type for our property summary data
 interface PropertySummary {
@@ -193,7 +194,7 @@ function DashboardPage() {
   }, [selectedProperty, filteredSummaries]);
 
   if (isLoading) {
-    return <div>Loading reviews...</div>;
+    return <DashboardSkeleton />;
   }
 
   if (isError) {
