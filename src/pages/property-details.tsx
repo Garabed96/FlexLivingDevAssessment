@@ -9,7 +9,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import { ChevronLeft, ChevronRight, X, ArrowLeft } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, ArrowLeft, Star } from 'lucide-react';
 import { MapPin } from 'lucide-react';
 import { Faqs } from '@/faqs.ts'; // Mock FAQ data
 import { useParams } from '@tanstack/react-router';
@@ -313,6 +313,336 @@ export function ReviewsPage() {
                 </CardContent>
               </Card>
             </div>
+            {/* Reviews Section */}
+            {/* Reviews Section */}
+            <Card className="bg-neutral-800 border-neutral-700 mt-6">
+              <CardContent className="p-6">
+                {/* Header */}
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="flex items-center gap-1">
+                    <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                    <span className="text-xl font-bold text-white">4.8</span>
+                  </div>
+                  <div className="text-sm text-neutral-400">
+                    Based on 28 reviews
+                  </div>
+                </div>
+
+                {/* Rating Breakdown */}
+                <div className="space-y-3 mb-6">
+                  {[
+                    { stars: 5, percentage: 75, count: 21 },
+                    { stars: 4, percentage: 18, count: 5 },
+                    { stars: 3, percentage: 7, count: 2 },
+                    { stars: 2, percentage: 0, count: 0 },
+                    { stars: 1, percentage: 0, count: 0 },
+                  ].map((rating) => (
+                    <div
+                      key={rating.stars}
+                      className="flex items-center gap-3 text-sm"
+                    >
+                      <div className="flex items-center gap-1 w-12">
+                        <span className="text-neutral-300">{rating.stars}</span>
+                        <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="bg-neutral-700 rounded-full h-2">
+                          <div
+                            className="bg-yellow-400 rounded-full h-2 transition-all duration-300"
+                            style={{ width: `${rating.percentage}%` }}
+                          />
+                        </div>
+                      </div>
+                      <span className="text-neutral-400 w-8 text-right">
+                        {rating.count}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Recent Reviews - Scrollable */}
+                <div className="space-y-4">
+                  <h4 className="font-semibold text-white text-sm">Reviews</h4>
+
+                  {/* Scrollable Reviews Container */}
+                  <div className="max-h-80 overflow-y-auto space-y-4 scrollbar-thin scrollbar-thumb-neutral-600 scrollbar-track-transparent pr-2">
+                    {/* Review 1 */}
+                    <div className="space-y-3 pb-4 border-b border-neutral-700">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-white text-xs font-medium">
+                            M
+                          </span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="font-medium text-white text-sm">
+                              Marie
+                            </span>
+                            <div className="flex">
+                              {[...Array(5)].map((_, i) => (
+                                <Star
+                                  key={i}
+                                  className="h-3 w-3 fill-yellow-400 text-yellow-400"
+                                />
+                              ))}
+                            </div>
+                          </div>
+                          <p className="text-xs text-neutral-300">
+                            "Perfect location and beautifully furnished. The
+                            host was incredibly responsive and helpful. Would
+                            definitely stay again!"
+                          </p>
+                          <span className="text-xs text-neutral-500 mt-2 block">
+                            2 weeks ago
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Review 2 */}
+                    <div className="space-y-3 pb-4 border-b border-neutral-700">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-white text-xs font-medium">
+                            J
+                          </span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="font-medium text-white text-sm">
+                              James
+                            </span>
+                            <div className="flex">
+                              {[...Array(4)].map((_, i) => (
+                                <Star
+                                  key={i}
+                                  className="h-3 w-3 fill-yellow-400 text-yellow-400"
+                                />
+                              ))}
+                              <Star className="h-3 w-3 text-neutral-600" />
+                            </div>
+                          </div>
+                          <p className="text-xs text-neutral-300">
+                            "Clean, comfortable space with excellent amenities.
+                            Great value for money in this area of Paris."
+                          </p>
+                          <span className="text-xs text-neutral-500 mt-2 block">
+                            1 month ago
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Review 3 */}
+                    <div className="space-y-3 pb-4 border-b border-neutral-700">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 bg-gradient-to-br from-pink-500 to-rose-600 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-white text-xs font-medium">
+                            S
+                          </span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="font-medium text-white text-sm">
+                              Sarah
+                            </span>
+                            <div className="flex">
+                              {[...Array(5)].map((_, i) => (
+                                <Star
+                                  key={i}
+                                  className="h-3 w-3 fill-yellow-400 text-yellow-400"
+                                />
+                              ))}
+                            </div>
+                          </div>
+                          <p className="text-xs text-neutral-300">
+                            "Amazing studio! Everything was exactly as
+                            described. The neighborhood is fantastic with great
+                            restaurants nearby."
+                          </p>
+                          <span className="text-xs text-neutral-500 mt-2 block">
+                            2 months ago
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Review 4 */}
+                    <div className="space-y-3 pb-4 border-b border-neutral-700">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-white text-xs font-medium">
+                            A
+                          </span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="font-medium text-white text-sm">
+                              Alex
+                            </span>
+                            <div className="flex">
+                              {[...Array(5)].map((_, i) => (
+                                <Star
+                                  key={i}
+                                  className="h-3 w-3 fill-yellow-400 text-yellow-400"
+                                />
+                              ))}
+                            </div>
+                          </div>
+                          <p className="text-xs text-neutral-300">
+                            "Excellent communication from the host. The
+                            apartment was spotless and had everything we needed
+                            for our stay."
+                          </p>
+                          <span className="text-xs text-neutral-500 mt-2 block">
+                            2 months ago
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Review 5 */}
+                    <div className="space-y-3 pb-4 border-b border-neutral-700">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-white text-xs font-medium">
+                            L
+                          </span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="font-medium text-white text-sm">
+                              Lisa
+                            </span>
+                            <div className="flex">
+                              {[...Array(4)].map((_, i) => (
+                                <Star
+                                  key={i}
+                                  className="h-3 w-3 fill-yellow-400 text-yellow-400"
+                                />
+                              ))}
+                              <Star className="h-3 w-3 text-neutral-600" />
+                            </div>
+                          </div>
+                          <p className="text-xs text-neutral-300">
+                            "Good location and nice amenities. Only minor issue
+                            was the WiFi being a bit slow, but overall a great
+                            stay."
+                          </p>
+                          <span className="text-xs text-neutral-500 mt-2 block">
+                            3 months ago
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Review 6 */}
+                    <div className="space-y-3 pb-4 border-b border-neutral-700">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-white text-xs font-medium">
+                            D
+                          </span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="font-medium text-white text-sm">
+                              David
+                            </span>
+                            <div className="flex">
+                              {[...Array(5)].map((_, i) => (
+                                <Star
+                                  key={i}
+                                  className="h-3 w-3 fill-yellow-400 text-yellow-400"
+                                />
+                              ))}
+                            </div>
+                          </div>
+                          <p className="text-xs text-neutral-300">
+                            "Fantastic stay! The studio is modern, clean, and
+                            perfectly located. Host provided excellent local
+                            recommendations."
+                          </p>
+                          <span className="text-xs text-neutral-500 mt-2 block">
+                            3 months ago
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Review 7 */}
+                    <div className="space-y-3 pb-4 border-b border-neutral-700">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 bg-gradient-to-br from-teal-500 to-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-white text-xs font-medium">
+                            E
+                          </span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="font-medium text-white text-sm">
+                              Emma
+                            </span>
+                            <div className="flex">
+                              {[...Array(4)].map((_, i) => (
+                                <Star
+                                  key={i}
+                                  className="h-3 w-3 fill-yellow-400 text-yellow-400"
+                                />
+                              ))}
+                              <Star className="h-3 w-3 text-neutral-600" />
+                            </div>
+                          </div>
+                          <p className="text-xs text-neutral-300">
+                            "Lovely place with all the essentials. Great
+                            neighborhood for exploring Paris. Would recommend to
+                            friends!"
+                          </p>
+                          <span className="text-xs text-neutral-500 mt-2 block">
+                            4 months ago
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Review 8 */}
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-white text-xs font-medium">
+                            T
+                          </span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="font-medium text-white text-sm">
+                              Thomas
+                            </span>
+                            <div className="flex">
+                              {[...Array(5)].map((_, i) => (
+                                <Star
+                                  key={i}
+                                  className="h-3 w-3 fill-yellow-400 text-yellow-400"
+                                />
+                              ))}
+                            </div>
+                          </div>
+                          <p className="text-xs text-neutral-300">
+                            "Outstanding experience from start to finish. The
+                            space exceeded our expectations and the host was
+                            incredibly welcoming."
+                          </p>
+                          <span className="text-xs text-neutral-500 mt-2 block">
+                            4 months ago
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </main>
