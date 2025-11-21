@@ -1,6 +1,6 @@
 # Flex Living - Reviews Dashboard
 ✨ [Live Demo](https://flex-living-dev-assessment.vercel.app/) ✨
-
+This project was done in about 8 hours of development time. 
 This project is a developer assessment task to build a Reviews Dashboard for Flex Living. The dashboard allows managers to assess property performance based on guest reviews, normalize data from a mock API, and manage which reviews are displayed publicly. It provides insights into property performance, enables efficient review management, and demonstrates a modern web application architecture.
 
 ## Tech Stack
